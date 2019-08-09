@@ -97,7 +97,6 @@ $(document).ready(function() {
           if (window.location.hash.length < 5) return;
 
           const top = $(window.location.hash).offset().top;
-          console.log('top', top);
           $('html, body').animate({
               scrollTop: $(window.location.hash).offset().top,
           }, 500, 'linear')

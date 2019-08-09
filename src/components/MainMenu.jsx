@@ -1,6 +1,6 @@
 import React from "react"
 
-export default ({ site, pageContext: { t } }) => {
+export default ({ site, pageContext: { t }, location }) => {
 
   return (
     <header className="header header--menu-rounded header--blue-lighteen" id="site-header">
@@ -42,7 +42,7 @@ export default ({ site, pageContext: { t } }) => {
                 <a href="/">{t['home']}</a>
               </li>
               <li className="">
-                <a href={['/', '/index.html'].includes(window.location.pathname) ? '#pricing' : '/#pricing'}>{t['pricing']}</a>
+                <a href={['/', '/index.html'].includes(location.pathname) ? '#pricing' : '/#pricing'}>{t['pricing']}</a>
               </li>
               <li className="">
                 <a href="blog">{t['blog']}</a>
