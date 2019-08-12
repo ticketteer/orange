@@ -33,7 +33,7 @@ export default class Header extends Component {
 
   render () {
     const { title = '', pageContext: { lang = 'de' }, site, ...props } = this.props
-    const img = `${props.location.href.split(props.location.pathname)[0]}/img/logo.png`
+    const img = `https://ticketteer.com/img/logo.png`
     return (
       <div>
         <Helmet {...helmetDefaults}>
