@@ -32,7 +32,8 @@ const preloaderStyles = {
 export default class Header extends Component {
 
   render () {
-    const { title = '', pageContext: { lang = 'de' }, site } = this.props;
+    const { title = '', pageContext: { lang = 'de' }, site, ...props } = this.props
+    const img = `${props.location.href.split(props.location.pathname)[0]}/img/logo.png`
     return (
       <div>
         <Helmet {...helmetDefaults}>
@@ -40,6 +41,17 @@ export default class Header extends Component {
           <meta charSet="utf-8" />
           <meta name="description" content={site.meta_desc} />
           <meta name="keywords" content={site.meta_keywords} />
+          <meta property="og:locale" content={lang} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Ticketteer" />
+          <meta property="og:title" content={title || 'ticketteer'} />
+          <meta property="og:description" content={site.meta_desc} />
+          <meta property="og:url" content={props.location.href} />
+          <meta property="og:image" content={img} />
+          <meta property="twitter:card" content="summary" />
+          <meta property="twitter:description" content={site.meta_desc} />
+          <meta property="twitter:title" content={title || 'ticketteer'} />
+          <meta property="twitter:image" content={img} />
           <link rel="canonical" href="https://ticketteer.com" />
           <title>Ticketteer{isEmpty(title) ? '' : `- ${title}`}</title>
           {/* <script defer src="/js/jquery-3.3.1.js"></script> */}

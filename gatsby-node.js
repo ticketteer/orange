@@ -22,52 +22,45 @@ const getIntl = lang => {
   return en
 }
 
+const checkPrismicBlogPost = (node, createNodeField) => {
+  if (node.internal.type !== 'PrismicBlogpost') return
+
+  let slug, TTR, excerpt
+
+  const data = JSON.parse(node.dataString)
+  const allText = fullText(data).toString()
+
+  slug = localizedSlug('blog', node)
+
+  // Check if the first slice (body[0]) has a text type
+  if (data.body[0].primary.text) {
+    // Use the first text node as an excerpt
+    excerpt = ex(data.body[0].primary.text[0].text)
+  } else if (!data.body[0].primary.text) {
+    // If the first slice is e.g. a note, use the second slice (body[1]) + text type
+    excerpt = ex(data.body[1].primary.text[0].text)
+  } else {
+    // If no excerpt can be extracted, give a default
+    excerpt = 'No excerpt available'
+  }
+  TTR = timeToRead(allText)
+  createNodeField({ node, name: 'slug', value: slug })
+  createNodeField({ node, name: 'excerpt', value: excerpt })
+  createNodeField({ node, name: 'timeToRead', value: TTR })
+}
+
+const checkPrismicFeaturesPage = (node, createNodeField) => {
+  if (node.internal.type !== 'PrismicFeatures') return
+
+  const slug = localizedSlug('features', node)
+  createNodeField({ node, name: 'slug', value: slug })
+}
+
 // Insert additional info into the nodes for queries
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
-
-  let slug
-  let excerpt
-  let TTR
-
-  // node.dataString is the original response from the API which indluces all informaiton
-
-  if (node.internal.type === 'PrismicProjekt') {
-    // This is the complete API response in one string
-    const data = JSON.parse(node.dataString)
-
-    // node.lang returns the lang, e.g. de-de
-    slug = localizedSlug('projects', node)
-
-    // The first slice is the normal rich text. That's why I chose body[0] here
-    // Since every project starts with a heading, the element to extract from is the second item in the array of the first slice (text[1])
-    excerpt = ex(data.body[0].primary.text[1].text)
-    createNodeField({ node, name: 'slug', value: slug })
-    createNodeField({ node, name: 'excerpt', value: excerpt })
-  }
-
-  if (node.internal.type === 'PrismicBlogpost') {
-    const data = JSON.parse(node.dataString)
-    const allText = fullText(data).toString()
-
-    slug = localizedSlug('blog', node)
-
-    // Check if the first slice (body[0]) has a text type
-    if (data.body[0].primary.text) {
-      // Use the first text node as an excerpt
-      excerpt = ex(data.body[0].primary.text[0].text)
-    } else if (!data.body[0].primary.text) {
-      // If the first slice is e.g. a note, use the second slice (body[1]) + text type
-      excerpt = ex(data.body[1].primary.text[0].text)
-    } else {
-      // If no excerpt can be extracted, give a default
-      excerpt = 'No excerpt available'
-    }
-    TTR = timeToRead(allText)
-    createNodeField({ node, name: 'slug', value: slug })
-    createNodeField({ node, name: 'excerpt', value: excerpt })
-    createNodeField({ node, name: 'timeToRead', value: TTR })
-  }
+  checkPrismicBlogPost(node, createNodeField)
+  checkPrismicFeaturesPage(node, createNodeField)
 }
 
 // Take the pages from src/pages and generate pages for all locales, e.g. /blog and /en/blog
@@ -104,10 +97,8 @@ exports.onCreatePage = ({ page, actions }) => {
   })
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+const createBlogPosts = async (graphql, actions) => {
   const { createPage } = actions
-
-  // Path to templates
   const blogTemplate = require.resolve('./src/templates/blog.jsx')
 
   const result = await graphql(`
@@ -136,6 +127,45 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+
+const createFeaturesPages = async (graphql, actions) => {
+  const { createPage } = actions
+  const template = require.resolve('./src/templates/features.jsx')
+
+  const result = await graphql(`
+      query featurePages($lang: String) {
+        allPrismicFeatures(filter: {lang: {eq: $lang}}) {
+          edges {
+            node {
+              uid
+              id
+              lang
+            }
+          }
+        }
+      }
+    `)
+
+  result.data.allPrismicFeatures.edges.forEach(edge => {
+    const t = getIntl(edge.node.lang)
+    createPage({
+      path: `/features/${edge.node.uid}`,
+      component: template,
+      context: {
+        uid: edge.node.uid,
+        lang: edge.node.lang,
+        t,
+      },
+    })
+  })
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+
+  createBlogPosts(graphql, actions)
+  createFeaturesPages(graphql, actions)
+
 }
 
 // Allow me to use something like: import { X } from 'directory' instead of '../../folder/directory'
