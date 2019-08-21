@@ -27,38 +27,8 @@ export default () => {
             <h5 className="widget-title">Categories</h5>
             <ul className="category-list">
               <li>
-                <a href="#">Entrepreneur
-                      <span className="cat-count">39</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">Innovation
-                      <span className="cat-count">632</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">Startup
-                      <span className="cat-count">8</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">Strategy
-                      <span className="cat-count">24</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">Tech
-                      <span className="cat-count">2</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">Marketing
-                      <span className="cat-count">16</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">Trends
-                      <span className="cat-count">9</span>
+                <a>Entrepreneur
+                  <span className="cat-count">39</span>
                 </a>
               </li>
             </ul>

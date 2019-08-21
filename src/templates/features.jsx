@@ -38,6 +38,7 @@ query featuresPage($lang: String, $uid: String) {
         ... on PrismicFeaturesBodySection {
           id
           primary {
+            image_position
             section_content {
               html
             }

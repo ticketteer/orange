@@ -98,9 +98,9 @@ export default props => {
 
           <div className="col-lg-3 col-lg-offset-1 col-md-12 col-sm-12 pt100 pb100">
             <div className="breadcrumbs-wrap inline-items">
-              <a href="#" className="btn btn--transparent btn--round">
+              <button className="btn btn--transparent btn--round">
                 <svg className="utouch-icon utouch-icon-home-icon-silhouette"><use xlinkHref="#utouch-icon-home-icon-silhouette"></use></svg>
-                </a>
+              </button>
 
               <ul className="breadcrumbs">
                 <li className="breadcrumbs-item">

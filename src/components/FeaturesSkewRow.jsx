@@ -14,7 +14,7 @@ export default ({ page }) => {
             </div>
           </div>
           <div className="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 negative-margin-bottom80">
-            <img src={page.image.url} alt="image" />
+            <img src={page.image.url} alt="" />
           </div>
         </div>
       </div>
