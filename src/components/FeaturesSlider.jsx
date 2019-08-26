@@ -30,9 +30,9 @@ const FeatureSliderControl = ({ index, activeIndex, item, setActiveTab }) => {
   const handleSetActive = () => setActiveTab(index)
 
   return (
-    <a className={`slides-item ${activeIndex === index ? 'slides-active slide-active' : ''}`} onClick={handleSetActive}>
+    <button className={`slides-item ${activeIndex === index ? 'slides-active slide-active' : ''}`} onClick={handleSetActive}>
       <span className={`round ${item.color_class.replace('-light', '')} ${index === 0 ? 'primary' : ''}`}></span>0{index + 1}.
-    </a>
+    </button>
   )
 }
 
@@ -46,10 +46,9 @@ export default class FeaturesSlider extends Component {
 
   render () {
     const { site } = this.props
-    console.log(site)
     const phoneSliders = filter(site.body, ['slice_type', 'phone_slider'])
     return (
-      <section className="crumina-module crumina-module-slider slider-tabs-vertical-line">
+      <section className="crumina-module crumina-module-slider slider-tabs-vertical-line" id="features">
         <div className="swiper-container" data-show-items="1">
           <div className="swiper-wrapper">
             {phoneSliders.map((item, index) => <FeatureSliderItem item={item.primary} key={`phone-slider-${index}`} />)}

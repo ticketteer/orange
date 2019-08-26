@@ -602,6 +602,7 @@ License: http://codecanyon.net/licenses
   cursor: pointer;
   text-align: center;
   padding: 0;
+  background: none;
   display: none;
   text-decoration: none;
   outline: none;
@@ -1303,7 +1304,6 @@ nav li.menu-item-has-mega-menu ul.mega-menu-row li {
   font-weight: $h-font-weight;
   color: $icon-color;
   text-transform: uppercase;
-  background: none;
 
   & > * {
     display: inline-block;

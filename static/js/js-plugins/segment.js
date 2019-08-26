@@ -1,195 +1,266 @@
 /**
- * segment - A JavaScript library to draw and animate SVG path strokes
- * @version v1.1.3
+ * segment - A little JavaScript class (without dependencies) to draw and animate SVG path strokes
+ * @version v0.0.2
  * @link https://github.com/lmgonzalves/segment
  * @license MIT
  */
+function Segment(t, e, n) {
+  this.path = t, this.length = t.getTotalLength(), this.path.style.strokeDashoffset = 2 * this.length, this.begin = e ? this.valueOf(e) : 0, this.end = n ? this.valueOf(n) : this.length, this.timer = null, this.draw(this.begin, this.end)
+}
+Segment.prototype = {
+  draw: function (t, e, n, i) {
+    if (n) {
+      var s = i.hasOwnProperty("delay") ? 1e3 * parseFloat(i.delay) : 0,
+        a = i.hasOwnProperty("easing") ? i.easing : null,
+        h = i.hasOwnProperty("callback") ? i.callback : null,
+        r = this;
+      if (this.stop(), s) return delete i.delay, this.timer = setTimeout(function () {
+        r.draw(t, e, n, i)
+      }, s), this.timer;
+      var l = new Date,
+        o = 1e3 / 60,
+        g = this.begin,
+        f = this.end,
+        u = this.valueOf(t),
+        d = this.valueOf(e);
+      ! function p() {
+        var t = new Date,
+          e = (t - l) / 1e3,
+          i = e / parseFloat(n),
+          s = i;
+        return "function" == typeof a && (s = a(s)), i > 1 ? (r.stop(), s = 1) : r.timer = setTimeout(p, o), r.begin = g + (u - g) * s, r.end = f + (d - f) * s, r.begin < 0 && (r.begin = 0), r.end > r.length && (r.end = r.length), r.begin < r.end ? r.draw(r.begin, r.end) : r.draw(r.begin + (r.end - r.begin), r.end - (r.end - r.begin)), i > 1 && "function" == typeof h ? h.call(r.context) : void 0
+      }()
+    } else this.path.style.strokeDasharray = this.strokeDasharray(t, e)
+  },
+  strokeDasharray: function (t, e) {
+    return this.begin = this.valueOf(t), this.end = this.valueOf(e), [this.length, this.length + this.begin, this.end - this.begin].join(" ")
+  },
+  valueOf: function (t) {
+    var e = parseFloat(t);
+    if (("string" == typeof t || t instanceof String) && ~t.indexOf("%")) {
+      var n;
+      ~t.indexOf("+") ? (n = t.split("+"), e = this.percent(n[0]) + parseFloat(n[1])) : ~t.indexOf("-") ? (n = t.split("-"), e = this.percent(n[0]) - parseFloat(n[1])) : e = this.percent(t)
+    }
+    return e
+  },
+  stop: function () {
+    clearTimeout(this.timer), this.timer = null
+  },
+  percent: function (t) {
+    return parseFloat(t) / 100 * this.length
+  }
+};
 
-(function(root, factory) {
-	if (typeof define === 'function' && define.amd) {
-		define([], factory);
-	} else if (typeof module === 'object' && module.exports) {
-		module.exports = factory();
-	} else {
-		root.Segment = factory();
-	}
-}(this, function () {
+! function (n, t) {
+  "object" == typeof exports && "undefined" != typeof module ? t(exports) : "function" == typeof define && define.amd ? define(["exports"], t) : t(n.ease = {})
+}(this, function (n) {
+  "use strict";
 
-	function Segment(path, begin, end, circular){
-		this.path = path;
-		this.reset();
-		this.begin = typeof begin !== 'undefined' ? this.valueOf(begin) : 0;
-		this.end = typeof end !== 'undefined' ? this.valueOf(end) : this.length;
-		this.circular = typeof circular !== 'undefined' ? circular : false;
-		this.timer = null;
-		this.animationTimer = null;
-		this.draw(this.begin, this.end, 0, {circular: this.circular});
-	}
+  function t(n, t) {
+    return null == n || isNaN(n) ? t : +n
+  }
 
-	Segment.prototype = {
-		reset: function(){
-			this.length = this.path.getTotalLength();
-			this.path.style.strokeDashoffset = this.length * 2;
-		},
+  function u(n, u) {
+    n = Math.max(1, t(n, 1)), u = t(u, .3) * A;
+    var i = u * Math.asin(1 / n);
+    return function (t) {
+      return n * Math.pow(2, 10 * --t) * Math.sin((i - t) / u)
+    }
+  }
 
-		draw: function(begin, end, duration, options){
-			this.circular = options && options.hasOwnProperty('circular') ? options.circular : false;
-			if(duration){
-				this.stop();
+  function i(n, u) {
+    n = Math.max(1, t(n, 1)), u = t(u, .3) * A;
+    var i = u * Math.asin(1 / n);
+    return function (t) {
+      return n * Math.pow(2, -10 * t) * Math.sin((t - i) / u) + 1
+    }
+  }
 
-				var that = this;
-				var delay = options && options.hasOwnProperty('delay') ? parseFloat(options.delay) * 1000 : 0;
-				if(delay){
-					delete options.delay;
-					this.timer = setTimeout(function(){
-						that.draw(begin, end, duration, options);
-					}, delay);
-					return this.timer;
-				}
+  function r(n, u) {
+    n = Math.max(1, t(n, 1)), u = 1.5 * t(u, .3) * A;
+    var i = u * Math.asin(1 / n);
+    return function (t) {
+      return n * ((t = 2 * t - 1) < 0 ? Math.pow(2, 10 * t) * Math.sin((i - t) / u) : Math.pow(2, -10 * t) * Math.sin((t - i) / u) + 2) / 2
+    }
+  }
 
-				this.startTime = new Date();
-				this.initBegin = this.begin;
-				this.initEnd = this.end;
-				this.finalBegin = this.valueOf(begin);
-				this.finalEnd = this.valueOf(end);
-				this.pausedTime = 0;
-				this.duration = duration;
-				this.easing = options && options.hasOwnProperty('easing') ? options.easing : null;
-				this.update = options && options.hasOwnProperty('update') ? options.update : null;
-				this.callback = options && options.hasOwnProperty('callback') ? options.callback : null;
+  function o(n) {
+    return n = t(n, 1.70158),
+      function (t) {
+        return t * t * ((n + 1) * t - n)
+      }
+  }
 
-				this.animationTimer = requestAnimationFrame(this.play.bind(this));
-			}else{
-				this.path.style.strokeDasharray = this.strokeDasharray(begin, end);
-			}
-		},
+  function e(n) {
+    return n = t(n, 1.70158),
+      function (t) {
+        return --t * t * ((n + 1) * t + n) + 1
+      }
+  }
 
-		play: function() {
-			var now = new Date();
-			if (this.pausedTime) {
-				this.startTime.setMilliseconds(this.startTime.getMilliseconds() + (now - this.pausedTime));
-				this.pausedTime = 0;
-			}
-			var elapsed = (now - this.startTime) / 1000;
-			var time = (elapsed / parseFloat(this.duration));
-			var t = time;
+  function c(n) {
+    return n = 1.525 * t(n, 1.70158),
+      function (t) {
+        return ((t *= 2) < 1 ? t * t * ((n + 1) * t - n) : (t -= 2) * t * ((n + 1) * t + n) + 2) / 2
+      }
+  }
 
-			if(typeof this.easing === 'function'){
-				t = this.easing(t);
-			}
+  function a(n) {
+    return 1 - f(1 - n)
+  }
 
-			if(time > 1){
-				t = 1;
-				this.stop();
-			}else{
-				this.animationTimer = requestAnimationFrame(this.play.bind(this));
-			}
+  function f(n) {
+    return B > n ? L * n * n : D > n ? L * (n -= C) * n + E : G > n ? L * (n -= F) * n + H : L * (n -= J) * n + K
+  }
 
-			this.drawStep(t);
+  function h(n) {
+    return ((n *= 2) <= 1 ? 1 - f(1 - n) : f(n - 1) + 1) / 2
+  }
 
-			if(time > 1 && typeof this.callback === 'function'){
-				return this.callback.call(this);
-			}
-		},
+  function s(n) {
+    return 1 - Math.sqrt(1 - n * n)
+  }
 
-		pause: function() {
-			if (this.animationTimer) {
-				this.stop();
-				this.pausedTime = new Date();
-			}
-		},
+  function M(n) {
+    return Math.sqrt(1 - --n * n)
+  }
 
-		resume: function() {
-			if (!this.animationTimer) {
-				this.animationTimer = requestAnimationFrame(this.play.bind(this));
-			}
-		},
+  function p(n) {
+    return ((n *= 2) <= 1 ? 1 - Math.sqrt(1 - n * n) : Math.sqrt(1 - (n -= 2) * n) + 1) / 2
+  }
 
-		stop: function(){
-			cancelAnimationFrame(this.animationTimer);
-			this.animationTimer = null;
-			clearTimeout(this.timer);
-			this.timer = null;
-		},
+  function l(n) {
+    return Math.pow(2, 10 * n - 10)
+  }
 
-		drawStep: function(t) {
-			this.begin = this.initBegin + (this.finalBegin - this.initBegin) * t;
-			this.end = this.initEnd + (this.finalEnd - this.initEnd) * t;
+  function w(n) {
+    return 1 - Math.pow(2, -10 * n)
+  }
 
-			this.begin = this.begin < 0 && !this.circular ? 0 : this.begin;
-			this.begin = this.begin > this.length && !this.circular ? this.length : this.begin;
-			this.end = this.end < 0 && !this.circular ? 0 : this.end;
-			this.end = this.end > this.length && !this.circular ? this.length : this.end;
+  function b(n) {
+    return ((n *= 2) <= 1 ? Math.pow(2, 10 * n - 10) : 2 - Math.pow(2, 10 - 10 * n)) / 2
+  }
 
-			if (this.end - this.begin <= this.length && this.end - this.begin > 0) {
-				this.draw(this.begin, this.end, 0, {circular: this.circular});
-			} else {
-				if (this.circular && this.end - this.begin > this.length) {
-					this.draw(0, this.length, 0, {circular: this.circular});
-				} else {
-					this.draw(this.begin + (this.end - this.begin), this.end - (this.end - this.begin), 0, {circular: this.circular});
-				}
-			}
+  function d(n) {
+    return 1 - Math.cos(n * R)
+  }
 
-			if(typeof this.update === 'function'){
-				this.update(this);
-			}
-		},
+  function y(n) {
+    return Math.sin(n * R)
+  }
 
-		strokeDasharray: function(begin, end){
-			this.begin = this.valueOf(begin);
-			this.end = this.valueOf(end);
-			if(this.circular){
-				var division = this.begin > this.end || (this.begin < 0 && this.begin < this.length * -1)
-					? parseInt(this.begin / parseInt(this.length)) : parseInt(this.end / parseInt(this.length));
-				if(division !== 0){
-					this.begin = this.begin - this.length * division;
-					this.end = this.end - this.length * division;
-				}
-			}
-			if(this.end > this.length){
-				var plus = this.end - this.length;
-				return [this.length, this.length, plus, this.begin - plus, this.end - this.begin].join(' ');
-			}
-			if(this.begin < 0){
-				var minus = this.length + this.begin;
-				if(this.end < 0){
-					return [this.length, this.length + this.begin, this.end - this.begin, minus - this.end, this.end - this.begin, this.length].join(' ');
-				}else{
-					return [this.length, this.length + this.begin, this.end - this.begin, minus - this.end, this.length].join(' ');
-				}
-			}
-			return [this.length, this.length + this.begin, this.end - this.begin].join(' ');
-		},
+  function x(n) {
+    return (1 - Math.cos(Q * n)) / 2
+  }
 
-		valueOf: function(input){
-			var val = parseFloat(input);
-			if(typeof input === 'string' || input instanceof String){
-				if(~input.indexOf('%')){
-					var arr;
-					if(~input.indexOf('+')){
-						arr = input.split('+');
-						val = this.percent(arr[0]) + parseFloat(arr[1]);
-					}else if(~input.indexOf('-')){
-						arr = input.split('-');
-						if(arr.length === 3){
-							val = -this.percent(arr[1]) - parseFloat(arr[2]);
-						}else{
-							val = arr[0] ? this.percent(arr[0]) - parseFloat(arr[1]) : -this.percent(arr[1]);
-						}
-					}else{
-						val = this.percent(input);
-					}
-				}
-			}
-			return val;
-		},
+  function q(n) {
+    return n * n * n
+  }
 
-		percent: function(value){
-			return parseFloat(value) / 100 * this.length;
-		}
-	};
+  function k(n) {
+    return --n * n * n + 1
+  }
 
-	return Segment;
+  function m(n) {
+    return ((n *= 2) <= 1 ? n * n * n : (n -= 2) * n * n + 2) / 2
+  }
 
-}));
+  function v(n) {
+    return n * n
+  }
+
+  function P(n) {
+    return n * (2 - n)
+  }
+
+  function O(n) {
+    return ((n *= 2) <= 1 ? n * n : --n * (2 - n) + 1) / 2
+  }
+
+  function g(n) {
+    return +n
+  }
+
+  function I(n) {
+    return n = t(n, 3),
+      function (t) {
+        return Math.pow(t, n)
+      }
+  }
+
+  function N(n) {
+    return n = t(n, 3),
+      function (t) {
+        return 1 - Math.pow(1 - t, n)
+      }
+  }
+
+  function j(n) {
+    return n = t(n, 3),
+      function (t) {
+        return ((t *= 2) <= 1 ? Math.pow(t, n) : 2 - Math.pow(2 - t, n)) / 2
+      }
+  }
+
+  function z(n, t, u) {
+    var i = (n += "").indexOf("-");
+    return 0 > i && (n += "-in"), arguments.length > 1 && T.hasOwnProperty(n) ? T[n](t, u) : S.hasOwnProperty(n) ? S[n] : g
+  }
+  var A = 1 / (2 * Math.PI),
+    B = 4 / 11,
+    C = 6 / 11,
+    D = 8 / 11,
+    E = .75,
+    F = 9 / 11,
+    G = 10 / 11,
+    H = .9375,
+    J = 21 / 22,
+    K = 63 / 64,
+    L = 1 / B / B,
+    Q = Math.PI,
+    R = Q / 2,
+    S = {
+      "linear-in": g,
+      "linear-out": g,
+      "linear-in-out": g,
+      "quad-in": v,
+      "quad-out": P,
+      "quad-in-out": O,
+      "cubic-in": q,
+      "cubic-out": k,
+      "cubic-in-out": m,
+      "poly-in": q,
+      "poly-out": k,
+      "poly-in-out": m,
+      "sin-in": d,
+      "sin-out": y,
+      "sin-in-out": x,
+      "exp-in": l,
+      "exp-out": w,
+      "exp-in-out": b,
+      "circle-in": s,
+      "circle-out": M,
+      "circle-in-out": p,
+      "bounce-in": a,
+      "bounce-out": f,
+      "bounce-in-out": h,
+      "back-in": o(),
+      "back-out": e(),
+      "back-in-out": c(),
+      "elastic-in": u(),
+      "elastic-out": i(),
+      "elastic-in-out": r()
+    },
+    T = {
+      "poly-in": I,
+      "poly-out": N,
+      "poly-in-out": j,
+      "back-in": o,
+      "back-out": e,
+      "back-in-out": c,
+      "elastic-in": u,
+      "elastic-out": i,
+      "elastic-in-out": r
+    };
+  n.ease = z
+});

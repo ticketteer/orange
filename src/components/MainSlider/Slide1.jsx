@@ -1,16 +1,8 @@
 import React from 'react'
 import Typewriter from 'typewriter-effect'
 
-export default ({ data }) => {
+export default ({ data, pageContext: { t } }) => {
   const audiences = data.big_slider_trailing_typewriter.split('/');
-  console.log(audiences)
-  const writeAudiences = typewriter => {
-    audiences.forEach(audience =>
-      typewriter
-        .typeString(audience)
-        .pauseFor(1000)
-    )
-  }
   return (
     <div className="swiper-slide bg-1 main-slider-bg-light">
 
@@ -36,13 +28,13 @@ export default ({ data }) => {
                 {data.big_slider_content.text}
               </h6>
               <div className="main-slider-btn-wrap" data-swiper-parallax="-300">
-                <a href="03_products.html" className="btn btn--orange btn--with-shadow">
-                  Mehr erfahren
-                          </a>
+                <a href="#features" className="btn btn--orange btn--with-shadow">
+                  {t['learn_more']}
+                </a>
 
-                <a href="02_company.html" className="btn btn-border btn--with-shadow c-primary">
-                  Demo anfordern
-                          </a>
+                <a href="https://dashboard.ticketteer.com/signup" className="btn btn-border btn--with-shadow c-primary">
+                  {t['try_now']}
+                </a>
               </div>
             </div>
           </div>

@@ -44,3 +44,10 @@
     margin-bottom: 20px;
   }
 }
+
+@media (max-width: 640px) {
+  .clients-item {
+    justify-content: center;
+    margin-bottom: 0;
+  }
+}

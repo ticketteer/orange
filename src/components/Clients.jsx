@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Client = ({ client }) => (
-  <div className="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+  <div className="col-lg-2 col-md-6 col-sm-6 col-xs-6">
     <a href={client.link ? client.link.url : ''} target="_blank" rel="noopener noreferrer" className="clients-item">
       <img src={client.image.url} alt={client.name} />
     </a>

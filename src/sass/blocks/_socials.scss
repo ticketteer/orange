@@ -5,6 +5,13 @@
 .socials {
   margin: 15px 0;
 
+  &.blog-socials {
+    margin: 0 2em;
+    justify-content: center;
+    display: flex;
+    padding-bottom: 2em;
+  }
+
   li {
 	display: inline-block;
 	margin-right: 10px;

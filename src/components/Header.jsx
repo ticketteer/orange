@@ -55,7 +55,6 @@ export default class Header extends Component {
           <meta property="twitter:image" content={LogoImg} />
           <link rel="canonical" href="https://ticketteer.com" />
           <title>Ticketteer{isEmpty(title) ? '' : `- ${title}`}</title>
-          {/* <script defer src="/js/jquery-3.3.1.js"></script> */}
           <script defer src="/js/js-plugins/moment.js"></script>
           <script defer src="/js/js-plugins/jquery.countdown.min.js"></script>
           <script defer src="/js/js-plugins/crum-mega-menu.js"></script>

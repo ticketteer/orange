@@ -384,120 +384,118 @@ $(document).ready(function() {
     };
 
 
-    ttGlobal.burgerAnimation = function () {
-        /* In animations (to close icon) */
+  ttGlobal.burgerAnimation = function () {
+      /* In animations (to close icon) */
 
-        var beginAC = 80,
-            endAC = 320,
-            beginB = 80,
-            endB = 320;
+      var beginAC = 80,
+        endAC = 320,
+        beginB = 80,
+        endB = 320;
 
-        function inAC(s) {
-            s.draw('80% - 240', '80%', 0.3, {
-                delay: 0.1,
-                callback: function () {
-                    inAC2(s)
-                }
-            });
+      function inAC(s) {
+        s.draw('80% - 240', '80%', 0.3, {
+          delay: 0.1,
+          callback: function () {
+            inAC2(s)
+          }
+        });
+      }
+
+      function inAC2(s) {
+        s.draw('100% - 545', '100% - 305', 0.6, {
+          easing: ease.ease('elastic-out', 1, 0.3)
+        });
+      }
+
+      function inB(s) {
+        s.draw(beginB - 60, endB + 60, 0.1, {
+          callback: function () {
+            inB2(s)
+          }
+        });
+      }
+
+      function inB2(s) {
+        s.draw(beginB + 120, endB - 120, 0.3, {
+          easing: ease.ease('bounce-out', 1, 0.3)
+        });
+      }
+
+      /* Out animations (to burger icon) */
+
+      function outAC(s) {
+        s.draw('90% - 240', '90%', 0.1, {
+          easing: ease.ease('elastic-in', 1, 0.3),
+          callback: function () {
+            outAC2(s)
+          }
+        });
+      }
+
+      function outAC2(s) {
+        s.draw('20% - 240', '20%', 0.3, {
+          callback: function () {
+            outAC3(s)
+          }
+        });
+      }
+
+      function outAC3(s) {
+        s.draw(beginAC, endAC, 0.7, {
+          easing: ease.ease('elastic-out', 1, 0.3)
+        });
+      }
+
+      function outB(s) {
+        s.draw(beginB, endB, 0.7, {
+          delay: 0.1,
+          easing: ease.ease('elastic-out', 2, 0.4)
+        });
+      }
+
+      /* Scale functions */
+
+      function addScale(m) {
+        m.className = 'menu-icon-wrapper scaled';
+      }
+
+      function removeScale(m) {
+        m.className = 'menu-icon-wrapper';
+      }
+
+      /* Awesome burger scaled */
+
+      var pathD = document.getElementById('pathD'),
+        pathE = document.getElementById('pathE'),
+        pathF = document.getElementById('pathF'),
+        segmentD = new Segment(pathD, beginAC, endAC),
+        segmentE = new Segment(pathE, beginB, endB),
+        segmentF = new Segment(pathF, beginAC, endAC),
+        wrapper2 = document.getElementById('menu-icon-wrapper'),
+        trigger2 = document.getElementById('menu-icon-trigger'),
+        toCloseIcon2 = true;
+
+      wrapper2.style.visibility = 'visible';
+
+      trigger2.onclick = function () {
+        addScale(wrapper2);
+        if (toCloseIcon2) {
+          inAC(segmentD);
+          inB(segmentE);
+          inAC(segmentF);
+        } else {
+          outAC(segmentD);
+          outB(segmentE);
+          outAC(segmentF);
+
         }
-
-        function inAC2(s) {
-            s.draw('100% - 545', '100% - 305', 0.6, {
-                easing: ease.ease('elastic-out', 1, 0.3)
-            });
-        }
-
-        function inB(s) {
-            s.draw(beginB - 60, endB + 60, 0.1, {
-                callback: function () {
-                    inB2(s)
-                }
-            });
-        }
-
-        function inB2(s) {
-            s.draw(beginB + 120, endB - 120, 0.3, {
-                easing: ease.ease('bounce-out', 1, 0.3)
-            });
-        }
-
-        /* Out animations (to burger icon) */
-
-        function outAC(s) {
-            s.draw('90% - 240', '90%', 0.1, {
-                easing: ease.ease('elastic-in', 1, 0.3),
-                callback: function () {
-                    outAC2(s)
-                }
-            });
-        }
-
-        function outAC2(s) {
-            s.draw('20% - 240', '20%', 0.3, {
-                callback: function () {
-                    outAC3(s)
-                }
-            });
-        }
-
-        function outAC3(s) {
-            s.draw(beginAC, endAC, 0.7, {
-                easing: ease.ease('elastic-out', 1, 0.3)
-            });
-        }
-
-        function outB(s) {
-            s.draw(beginB, endB, 0.7, {
-                delay: 0.1,
-                easing: ease.ease('elastic-out', 2, 0.4)
-            });
-        }
-
-        /* Scale functions */
-
-        function addScale(m) {
-            m.className = 'menu-icon-wrapper scaled';
-        }
-
-        function removeScale(m) {
-            m.className = 'menu-icon-wrapper';
-        }
-
-        /* Awesome burger scaled */
-
-        var pathD = document.getElementById('pathD'),
-            pathE = document.getElementById('pathE'),
-            pathF = document.getElementById('pathF'),
-            segmentD = new Segment(pathD, beginAC, endAC),
-            segmentE = new Segment(pathE, beginB, endB),
-            segmentF = new Segment(pathF, beginAC, endAC),
-            wrapper2 = document.getElementById('menu-icon-wrapper'),
-            trigger2 = document.getElementById('menu-icon-trigger'),
-            toCloseIcon2 = true;
-
-        wrapper2.style.visibility = 'visible';
-
-        trigger2.onclick = function () {
-            addScale(wrapper2);
-            if (toCloseIcon2) {
-                inAC(segmentD);
-                inB(segmentE);
-                inAC(segmentF);
-            } else {
-                outAC(segmentD);
-                outB(segmentE);
-                outAC(segmentF);
-
-            }
-            toCloseIcon2 = !toCloseIcon2;
-            setTimeout(function () {
-                removeScale(wrapper2)
-            }, 450);
-        };
+        toCloseIcon2 = !toCloseIcon2;
+        setTimeout(function () {
+          removeScale(wrapper2)
+        }, 450);
+      };
     };
 
-
-  
 
 
     /* -----------------------------
@@ -525,21 +523,6 @@ $(document).ready(function() {
         return false;
     });
 
-    jQuery(".js-open-search-standard > *").on('click', function () {
-        $primaryMenu.find('.search-standard').addClass('open');
-        $primaryMenu.css({'visibility': 'hidden'});
-        $('#menu-icon-trigger').css({'opacity': '0'});
-        setTimeout(function() { $primaryMenu.find('.search-input').focus() }, 100);
-        return false;
-    });
-
-    jQuery(".js-search-close > *").on('click', function () {
-        $primaryMenu.find('.search-standard').removeClass('open');
-        $primaryMenu.css({'visibility': 'visible'});
-        $('#menu-icon-trigger').css({'opacity': '1'});
-        return false;
-    });
-
     jQuery("#top-bar-close-js").on('click', function () {
         $('.top-bar').removeClass('open');
         return false;
@@ -555,10 +538,6 @@ $(document).ready(function() {
          {  $('.message-popup').removeClass('open'); }
          {  $('.popup-gallery').removeClass('open'); }
         return false;
-    });
-
-    jQuery(".js-popup-clear-input").on('click', function () {
-        $(".js-popup-clear-input").closest(".typeahead__field").find(".js-typeahead").val("").focus();
     });
 
 
@@ -577,16 +556,6 @@ $(document).ready(function() {
         }, 1200);
         return false;
     });
-
-    //Type Ahead
-	ttGlobal.typeAhead = function () {
-		// $('.js-typeahead').typeahead({
-		// 	order: "asc",
-		// 	source: {
-		// 		data: ["63 WordPress", "48 WordPress Plugins", "16 WordPress Theme", "2 WP Mobile App"]
-		// 	}
-		// });
-    };
 
     jQuery(function(){
         jQuery('.social__item.main').hover(function(){
@@ -621,6 +590,16 @@ $(document).ready(function() {
         ttGlobal.burgerAnimation();
     }
 
+    $primaryMenu.crumegamenu({
+      showSpeed: 0,
+      hideSpeed: 0,
+      trigger: "hover",
+      animation: "drop-up",
+      effect: "fade",
+      indicatorFirstLevel: "&#xf0d7",
+      indicatorSecondLevel: "&#xf105"
+    });
+    
     ttGlobal.fixedHeader();
     ttGlobal.initSwiper();
     ttGlobal.equalHeight();

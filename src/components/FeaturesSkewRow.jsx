@@ -3,7 +3,8 @@ import { getBGClass } from '../utils/colors'
 
 export default ({ page }) => {
   return (
-    <section className={`section-bg-skew bg-${page.bg_color} ${getBGClass(page.bg_color)} pt180 not-top-element`}>
+    <section className={`section-bg-rounded bg-rounded-style1 bg-${page.bg_color} ${getBGClass(page.bg_color)} pt120 not-top-element`}>
+      <div className="clouds" />
       <div className="container">
         <div className="row">
 
@@ -14,7 +15,7 @@ export default ({ page }) => {
               <div className="heading-text">{page.short_desc.text}</div>
             </div>
           </div>
-          <div className="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 negative-margin-bottom80">
+          <div className="col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1 col-sm-12 col-xs-12 pb80">
             <img src={page.image.url} alt="" />
           </div>
         </div>

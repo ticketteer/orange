@@ -27,7 +27,7 @@ export default () => {
                 Seither wächst die Fangemeinde um Ticketteer im Raum Österreich und Deutschland.
               </p>
 
-              <a href="02_company.html" className="learn-more">Learn more about Utouch</a>
+              <a href="/about" className="learn-more">Learn more about Ticketteer</a>
             </div>
 
           </div>
@@ -35,48 +35,36 @@ export default () => {
           <div className="col-lg-2 col-lg-offset-1 col-md-3 col-sm-12 col-sm-offset-0 col-xs-12">
             <div className="widget w-list">
 
-              <h5 className="widget-title">Userful Links</h5>
+              <h5 className="widget-title">Useful Links</h5>
               <ul className="list list--primary">
                 <li>
-                  <a href="index.html">Home</a>
+                  <a href="/">Home</a>
                   <svg className="utouch-icon utouch-icon-arrow-right">
                     <use xlinkHref="#utouch-icon-arrow-right"></use>
                 </svg>
               </li>
               <li>
-                <a href="02_company.html">Company</a>
+                <a href="/about">Company</a>
                 <svg className="utouch-icon utouch-icon-arrow-right">
                   <use xlinkHref="#utouch-icon-arrow-right"></use>
                 </svg>
               </li>
-            <li>
-              <a href="03_products.html">Products</a>
-              <svg className="utouch-icon utouch-icon-arrow-right">
-                <use xlinkHref="#utouch-icon-arrow-right"></use>
+              <li>
+                <a href="/#pricing">Pricing</a>
+                <svg className="utouch-icon utouch-icon-arrow-right">
+                  <use xlinkHref="#utouch-icon-arrow-right"></use>
                 </svg>
               </li>
-          <li>
-            <a href="08_events.html">Events</a>
-            <svg className="utouch-icon utouch-icon-arrow-right">
-              <use xlinkHref="#utouch-icon-arrow-right"></use>
+              <li>
+                <a href="/blog">Blog</a>
+                <svg className="utouch-icon utouch-icon-arrow-right">
+                  <use xlinkHref="#utouch-icon-arrow-right"></use>
                 </svg>
               </li>
-        <li>
-          <a href="15_pricing_tables.html">Pricing</a>
-          <svg className="utouch-icon utouch-icon-arrow-right">
-            <use xlinkHref="#utouch-icon-arrow-right"></use>
-                </svg>
-              </li>
-      <li>
-        <a href="blog.html">Blog</a>
-        <svg className="utouch-icon utouch-icon-arrow-right">
-          <use xlinkHref="#utouch-icon-arrow-right"></use>
-                </svg>
-              </li>
-    <li>
-      <a href="18_contacts.html">Contacts</a>
-      <svg className="utouch-icon utouch-icon-arrow-right">
-        <use xlinkHref="#utouch-icon-arrow-right"></use>
+              <li>
+                <a href="/about">Contact</a>
+                <svg className="utouch-icon utouch-icon-arrow-right">
+                  <use xlinkHref="#utouch-icon-arrow-right"></use>
                 </svg>
               </li >
             </ul >

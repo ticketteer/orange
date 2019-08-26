@@ -359,8 +359,9 @@
 
   .pricing-tables--item-with-thumb .more-arrow {
 	float: none;
-	margin-bottom: 10px;
-	display: block;
+	margin: 10px auto;
+  display: inline-block;
+  background: none;
   }
 
   .pricing-tables--item-with-thumb .rate {

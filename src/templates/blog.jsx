@@ -31,6 +31,9 @@ query blogEntry($lang: String, $uid: String) {
             full_name {
               text
             }
+            picture {
+              url
+            }
             short_description {
               text
             }
@@ -88,7 +91,7 @@ export default ({ data, ...props }) => {
           <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
             <BlogPage {...props} blog={blog} />
           </div>
-          <BlogSidebar site={site} />
+          <BlogSidebar {...props} blog={blog} />
         </div>
       </div>
       <Footer {...props} site={site} />
