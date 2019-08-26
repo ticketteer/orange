@@ -23,6 +23,7 @@ query featuresPage($lang: String, $uid: String) {
       short_desc {
         text
       }
+      bg_color
       body {
         ... on PrismicFeaturesBody2Cols {
           id
@@ -87,7 +88,7 @@ export default ({ data, ...props }) => {
   const site = data.prismicLandingPage.data
   const gdpr = data.prismicGdpr.data
   return (
-    <Layout {...props} site={site} gdpr={gdpr}>
+    <Layout {...props} site={site} page={page} gdpr={gdpr}>
       <Helmet>
         <meta property="og:type" content="article" />
         <meta property="og:title" content={page.title.text} />

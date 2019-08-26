@@ -9,7 +9,6 @@
   left: 0;
   color: #839dbc;
   transition: all .3s ease;
-  box-shadow: 15px 0 25px 0 rgba(200,219,239, 0.3);
   padding-top: 6px;
 
   & > .container {
@@ -193,6 +192,9 @@
   }
 }
 
+.header--red,
+.header--blue,
+.header--orange,
 .header--dark {
   background-color: $black;
 
@@ -201,12 +203,33 @@
   }
 
   .logo-sub-title {
-    color: $primary-color;
+    color: $white-color;
   }
 
   .mob-menu--title {
     color: $white-color;
   }
+
+  .primary-menu {
+    li {
+      a {
+        color: $white-color;
+      }
+    }
+  }
+
+}
+
+.header--red { 
+  background-color: $red;
+}
+
+.header--blue {
+  background-color: $blue;
+}
+
+.header--orange {
+  background-color: $orange;
 }
 
 .header--blue-lighteen {

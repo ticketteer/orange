@@ -33,7 +33,8 @@
     "react": "^16.8.6",
     "react-cookie-consent": "^2.3.2",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "typewriter-effect": "^2.10.0"
   },
   "devDependencies": {
     "dotenv": "^8.0.0",

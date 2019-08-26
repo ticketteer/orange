@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default () => {
+export default ({pageContext: { t } }) => {
   return (
     <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
       <aside aria-label="sidebar" className="sidebar sidebar-right">
@@ -10,13 +10,12 @@ export default () => {
             <a href="/" className="full-block">&nbsp;</a>
             <img src="img/logo.png" alt="Utouch" />
             <div className="logo-text">
-              <div className="logo-title">Ticketteer</div>
-              <div className="logo-sub-title">app startup</div>
+              <div className="logo-title">ticketteer</div>
+              <div className="logo-sub-title">reaching out for your visitors</div>
             </div>
           </div>
 
-          <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est
-              notare quam littera gothica, putamus parum claram, anteposuerit formas.
+          <p>
           </p>
           <a href="index.html" className="btn btn-border btn--with-shadow c-primary">
             read more
@@ -24,11 +23,21 @@ export default () => {
         </aside>
 
           <aside className="widget w-category">
-            <h5 className="widget-title">Categories</h5>
+            <h5 className="widget-title">{t['categories']}</h5>
             <ul className="category-list">
               <li>
-                <a>Entrepreneur
-                  <span className="cat-count">39</span>
+                <a>Marketingmaßnahmen
+                  <span className="cat-count">1</span>
+                </a>
+              </li>
+              <li>
+                <a>Ticketverkauf
+                  <span className="cat-count">0</span>
+                </a>
+              </li>
+              <li>
+                <a>Hardware
+                  <span className="cat-count">0</span>
                 </a>
               </li>
             </ul>

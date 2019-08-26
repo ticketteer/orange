@@ -12,26 +12,7 @@ export default ({ site }) => {
                                                     : <Slide2 data={sliderData} key={`slide-${i}`} />
           )}
         </div>
-
-        <div className="btn-prev with-bg">
-            <svg className="utouch-icon icon-hover utouch-icon-arrow-left-1">
-              <use xlinkHref="#utouch-icon-arrow-left-1"></use>
-          </svg>
-          <svg className="utouch-icon utouch-icon-arrow-left1">
-            <use xlinkHref="#utouch-icon-arrow-left1"></use>
-          </svg>
       </div>
-
-      <div className="btn-next with-bg">
-        <svg className="utouch-icon icon-hover utouch-icon-arrow-right-1">
-          <use xlinkHref="#utouch-icon-arrow-right-1"></use>
-          </svg>
-      <svg className="utouch-icon utouch-icon-arrow-right1">
-        <use xlinkHref="#utouch-icon-arrow-right1"></use>
-          </svg >
-        </div >
-
-      </div >
     </div >
   )
 }

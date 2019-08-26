@@ -1,9 +1,10 @@
 import React from "react"
-
-export default ({ site, pageContext: { t }, location }) => {
+import Logo from '../images/logo.png'
+import LogoInv from '../images/logo_inv.png'
+export default ({ site, page, pageContext: { t }, location }) => {
 
   return (
-    <header className="header header--menu-rounded header--blue-lighteen" id="site-header">
+    <header className={`header header--menu-rounded ${page ? `header--${page.bg_color}` : 'header--blue-lighteen'}`} id="site-header">
 
       <div className="container">
 
@@ -17,7 +18,7 @@ export default ({ site, pageContext: { t }, location }) => {
 
         <div className="site-logo">
           <a href="/" className="full-block">&nbsp;</a>
-          <img src="/img/logo.png" alt={site.title} />
+          <img src={page ? LogoInv : Logo} alt={site.title} />
           <div className="logo-text">
             <div className="logo-title">{site.title}</div>
             <div className="logo-sub-title">{site.short_slogan}</div>

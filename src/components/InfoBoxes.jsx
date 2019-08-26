@@ -11,14 +11,14 @@ const InfoBox = ({ box, index }) => {
         </div>
 
         <div className="info-box-content">
-          <a href="/" className="h5 info-box-title">{box.info_box_title.text}</a>
+          <a href={`/features${box.info_box_link.url}`} className="h5 info-box-title">{box.info_box_title.text}</a>
           <div
             className="info-box-text"
             dangerouslySetInnerHTML={{ __html: box.info_box_content.html }}
           />
         </div>
 
-        <a href="/" className="btn-next">
+        <a href={`/features${box.info_box_link.url}`} className="btn-next">
           <svg className="utouch-icon icon-hover utouch-icon-arrow-right-1">
             <use xlinkHref="#utouch-icon-arrow-right-1"></use>
           </svg>

@@ -9,5 +9,12 @@
   "monthly": "monatlich",
   "at_annual_payment": "bei jährlicher Zahlung",
   "annually": "jährlich",
-  "per_month": "pro Monat"
+  "per_month": "pro Monat",
+  "send": "Abschicken",
+  "name": "Name",
+  "email": "E-Mail",
+  "phone": "Telefonnummer",
+  "subject": "Titel / Betreff",
+  "your_message": "Deine Nachricht",
+  "categories": "Kategorien"
 }

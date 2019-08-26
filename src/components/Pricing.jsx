@@ -76,6 +76,7 @@ export default class Pricing extends React.Component {
             </div>
           </div>
         </div>
+        <div className="pricing-footnote" dangerouslySetInnerHTML={{ __html: site.pricing_footnote.html }} />
       </section>
     )
   }

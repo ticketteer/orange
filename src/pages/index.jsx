@@ -24,6 +24,31 @@ query site($lang: String) {
       pricing_title
       pricing_subtitle
       currency_symbol
+      body {
+        ... on PrismicLandingPageBodyPhoneSlider {
+          slice_type
+          id
+          primary {
+            super_title
+            slider_title
+            color_class
+            description {
+              html
+            }
+            image {
+              alt
+              url
+            }
+            cta_text
+            cta_link {
+              url
+            }
+          }
+        }
+      }
+      pricing_footnote {
+        html
+      }
       pricing_plans {
         plan_title {
           text
@@ -46,6 +71,7 @@ query site($lang: String) {
         big_slider_content {
           text
         }
+        big_slider_trailing_typewriter
         big_slider_cta_1 {
           document {
             data {
@@ -65,6 +91,9 @@ query site($lang: String) {
         }
       }
       info_boxes {
+        info_box_link {
+          url
+        }
         info_box_title {
           text
         }

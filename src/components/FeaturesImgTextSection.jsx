@@ -19,7 +19,6 @@ const TextBlock = ({ content }) => (
 
 export default ({ section }) => {
   const content = section.primary
-  console.log('pos', content.image_position)
   return (
     <section className="pt120">
       <div className="container">

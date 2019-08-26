@@ -64,11 +64,10 @@
 	// Off
 	&:not(:checked) {
 	  + span {
-      background: $bg-primary;
+      background: $grey;
       color: $toggle-disabled-color;
       padding-left: 3.7em;
       padding-right: 1.5em;
-      box-shadow: 0 0 5px rgba(0, 131, 255, 0.3);
 
       &:before {
         content: attr(data-off);
@@ -84,11 +83,10 @@
     // On
     &:checked {
       + span {
-        background: $red;
+        background: $grey;
         color: $toggle-enabled-color;
         padding-left: 1.5em;
         padding-right: 3.7em;
-        box-shadow: 0 0 5px rgba(248, 48, 50, 0.3);
         &:before {
           content: attr(data-on);
         }

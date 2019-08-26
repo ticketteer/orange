@@ -34,7 +34,21 @@
 
 	.slider-content-title {
 	  margin-bottom: 10px;
-	  line-height: 1.3;
+    line-height: 1.3;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .text {
+      width: 12em;
+      text-align: right;
+    }
+    .Typewriter {
+      margin-left: .3em;
+      color: $orange;
+      width: 5em;
+      text-align: left;
+    }
 	}
 
 	.slider-content-text {

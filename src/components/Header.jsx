@@ -2,8 +2,10 @@ import React, { Component } from "react"
 import { Helmet } from 'react-helmet'
 import isEmpty from 'lodash/isEmpty'
 import MainMenu from './MainMenu'
-
 import $ from 'jquery'
+
+import LogoImg from '../images/logo.png'
+
 if (typeof(window) !== 'undefined') {
   window.$ = $;
   window.jQuery = $;
@@ -33,7 +35,6 @@ export default class Header extends Component {
 
   render () {
     const { title = '', pageContext: { lang = 'de' }, site, ...props } = this.props
-    const img = `https://ticketteer.com/img/logo.png`
     return (
       <div>
         <Helmet {...helmetDefaults}>
@@ -43,20 +44,19 @@ export default class Header extends Component {
           <meta name="keywords" content={site.meta_keywords} />
           <meta property="og:locale" content={lang} />
           <meta property="og:type" content="website" />
-          <meta property="og:site_name" content="Ticketteer" />
+          <meta property="og:site_name" content="ticketteer" />
           <meta property="og:title" content={title || 'ticketteer'} />
           <meta property="og:description" content={site.meta_desc} />
           <meta property="og:url" content={props.location.href} />
-          <meta property="og:image" content={img} />
+          <meta property="og:image" content={LogoImg} />
           <meta property="twitter:card" content="summary" />
           <meta property="twitter:description" content={site.meta_desc} />
           <meta property="twitter:title" content={title || 'ticketteer'} />
-          <meta property="twitter:image" content={img} />
+          <meta property="twitter:image" content={LogoImg} />
           <link rel="canonical" href="https://ticketteer.com" />
           <title>Ticketteer{isEmpty(title) ? '' : `- ${title}`}</title>
           {/* <script defer src="/js/jquery-3.3.1.js"></script> */}
           <script defer src="/js/js-plugins/moment.js"></script>
-          <script defer src="/js/js-plugins/ajax-pagination.js"></script>
           <script defer src="/js/js-plugins/jquery.countdown.min.js"></script>
           <script defer src="/js/js-plugins/crum-mega-menu.js"></script>
           <script defer src="/js/js-plugins/swiper.jquery.min.js"></script>

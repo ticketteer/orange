@@ -1,8 +1,9 @@
 import React from 'react'
+import { getBGClass } from '../utils/colors'
 
 export default ({ page }) => {
   return (
-    <section className="section-bg-skew bg-19 bg-violet pt180 not-top-element">
+    <section className={`section-bg-skew bg-${page.bg_color} ${getBGClass(page.bg_color)} pt180 not-top-element`}>
       <div className="container">
         <div className="row">
 
