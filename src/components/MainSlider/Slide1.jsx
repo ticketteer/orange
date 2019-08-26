@@ -4,7 +4,7 @@ export default class Slide1 extends React.Component {
   
   render () {
     const { data, pageContext: { t } } = this.props
-    const audiences = data.big_slider_trailing_typewriter.split('/')
+    // const audiences = data.big_slider_trailing_typewriter.split('/')
     return (
       <div className="swiper-slide bg-1 main-slider-bg-light">
 
