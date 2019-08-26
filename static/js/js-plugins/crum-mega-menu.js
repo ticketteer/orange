@@ -1,5 +1,7 @@
 (function ($) {
 
+  if (!window) return;
+
   jQuery.fn.crumegamenu = function (options) {
     var settings;
     $.extend(settings = {
