@@ -2,9 +2,18 @@ import React from 'react'
 
 export default class Slide1 extends React.Component {
   
+  state = {
+    Typewriter: null,
+  }
+
+  componentDidMount () {
+    this.setState({Typewriter: require('typewriter-effect') })
+    console.log(this.state.Typewriter)
+  }
+
   render () {
     const { data, pageContext: { t } } = this.props
-    // const audiences = data.big_slider_trailing_typewriter.split('/')
+    const audiences = data.big_slider_trailing_typewriter.split('/')
     return (
       <div className="swiper-slide bg-1 main-slider-bg-light">
 
@@ -17,13 +26,17 @@ export default class Slide1 extends React.Component {
 
                 <h1 className="slider-content-title" data-swiper-parallax="-100">
                   <div className="text">{data.big_slider_title.text}</div>
-                  {/* <Typewriter
-                    options={{
-                      strings: audiences,
-                      autoStart: true,
-                      loop: true,
-                    }}
-                  /> */}
+                  <span className="typewriter-anim" data-text={JSON.stringify(audiences)} />
+                  {this.state.Typewriter
+                    ? <this.state.Typewriter
+                        options={{
+                          strings: audiences,
+                          autoStart: true,
+                          loop: true,
+                        }}
+                      />
+                    : null
+                  }
                 </h1>
 
                 <h6 className="slider-content-text" data-swiper-parallax="-200">
