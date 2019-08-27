@@ -11,6 +11,7 @@ import Clients from '../components/Clients'
 import Pricing from '../components/Pricing'
 import Footer from '../components/Footer'
 import ContactForm from '../components/ContactForm'
+import SubscribeForm from '../components/SubscribeForm';
 
 export const pageQuery = graphql`
 query site($lang: String) {
@@ -115,6 +116,9 @@ query site($lang: String) {
           alt
         }
       }
+      mailjet_list_id
+      newsletter_title
+      newsletter_subtitle
     }
   }
   prismicGdpr(lang: {eq: $lang}) {
@@ -138,6 +142,10 @@ export default props => {
       <Video {...props} site={site} />
       <Clients {...props} site={site} />
       <Pricing {...props} site={site} />
+      { site.mailjet_list_id && site.mailjet_list_id.length > 0
+        ? <SubscribeForm {...props} site={site} />
+        : null
+      }
       <Footer {...props} site={site} />
       <ContactForm {...props} site={site} />
     </Layout>

@@ -1,6 +1,22 @@
 import React from 'react'
 
-const PricingPlan = ({ plan, site, curPeriod, t }) => (
+const Price = ({ plan, site, curPeriod, t }) => (
+  <div>
+    <h2 className="h5 rate">
+      {site.currency_symbol}
+      <span className="price" data-annually={plan.plan_price_annually} data-monthly={plan.plan_price_monthly}>
+        {curPeriod === 'annually' ? plan.plan_price_annually : plan.plan_price_monthly}
+      </span>
+    </h2>
+    <div className="rate-desc">
+      {t['per_month']}
+      <br />
+      {curPeriod === 'annually' ? t['at_annual_payment'] : null}
+    </div>
+  </div>
+)
+
+const PricingPlan = ({ plan, ...props }) => (
   <div className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
     <div className="crumina-module crumina-pricing-tables-item pricing-tables--item-with-thumb" data-mh="pricing">
       <div className="pricing-thumb">
@@ -17,17 +33,10 @@ const PricingPlan = ({ plan, site, curPeriod, t }) => (
           className="pricing-description"
           dangerouslySetInnerHTML={{ __html: plan.plan_features.html }}
         />
-        <h2 className="h5 rate">
-          {site.currency_symbol}
-          <span className="price" data-annually={plan.plan_price_annually} data-monthly={plan.plan_price_monthly}>
-            {curPeriod === 'annually' ? plan.plan_price_annually : plan.plan_price_monthly}
-          </span>
-        </h2>
-        <div className="rate-desc">
-          {t['per_month']}
-          <br />
-          {curPeriod === 'annually' ? t['at_annual_payment'] : null}
-        </div>
+        {plan.plan_price_monthly && plan.plan_price_monthly.length > 0
+          ? <Price plan={plan} {...props} />
+          : null
+        }
       </div>
 
       <div>

@@ -27,7 +27,7 @@ export default () => {
                 Seither wächst die Fangemeinde um Ticketteer im Raum Österreich und Deutschland.
               </p>
 
-              <a href="/about" className="learn-more">Learn more about Ticketteer</a>
+              <a href="/contact" className="learn-more">Learn more about Ticketteer</a>
             </div>
 
           </div>
@@ -44,7 +44,7 @@ export default () => {
                 </svg>
               </li>
               <li>
-                <a href="/about">Company</a>
+                <a href="/contact">Company</a>
                 <svg className="utouch-icon utouch-icon-arrow-right">
                   <use xlinkHref="#utouch-icon-arrow-right"></use>
                 </svg>
@@ -62,7 +62,7 @@ export default () => {
                 </svg>
               </li>
               <li>
-                <a href="/about">Contact</a>
+                <a href="/contact">Contact</a>
                 <svg className="utouch-icon utouch-icon-arrow-right">
                   <use xlinkHref="#utouch-icon-arrow-right"></use>
                 </svg>

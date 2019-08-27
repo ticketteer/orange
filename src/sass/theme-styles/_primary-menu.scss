@@ -1304,6 +1304,7 @@ nav li.menu-item-has-mega-menu ul.mega-menu-row li {
   font-weight: $h-font-weight;
   color: $icon-color;
   text-transform: uppercase;
+  background: none;
 
   & > * {
     display: inline-block;
