@@ -149,6 +149,23 @@
   height: 105px;
 }
 
+.cc-btn {
+  background: $green !important;
+  color: $white-color !important;
+  font-weight: bold;
+}
+
+.cc-btn, .cc-decline {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  border-radius: 1.2em !important;
+}
+
+.cc-decline {
+  background: none !important;
+  border: 1px solid darken($white-color, 20%) !important;
+}
+
 .site-logo {
   position: relative;
   margin-bottom: 20px;
@@ -172,7 +189,8 @@
   font-size: 30px;
   color: $heading-color;
   font-weight: 800;
-  line-height: .7;
+  line-height: .85;
+  margin-top: -4px;
 }
 
 .logo-sub-title {
@@ -194,7 +212,7 @@
 
 .header--red,
 .header--blue,
-.header--orange,
+.header--orange-light,
 .header--dark {
   background-color: $black;
 
@@ -226,14 +244,28 @@
 
 .header--red { 
   background-color: $red;
+  .primary-menu-menu {
+    a {
+      color: $white-color;
+    }
+  }
 }
 
 .header--blue {
   background-color: $blue;
 }
 
-.header--orange {
-  background-color: $orange;
+.header--orange-light {
+  background-color: $orange-light;
+}
+
+.header--orange-light,
+.header-red {
+  .primary-menu-menu {
+    a {
+      color: $white-color;
+    }
+  }
 }
 
 

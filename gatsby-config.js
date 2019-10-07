@@ -33,6 +33,20 @@ module.exports = {
         extensions: ['css', 'html', 'js', 'svg']
       }
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-87112841-2',
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /svg-inline/ // See below to configure properly
+        }
+      }
+    }
     // {
     //   resolve: "gatsby-source-filesystem",
     //   options: {

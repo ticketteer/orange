@@ -1,6 +1,6 @@
 import React from "react"
+import LogoInv from '../images/logo-white-burned.png'
 import Logo from '../images/logo.png'
-import LogoInv from '../images/logo_inv.png'
 export default ({ site, page, pageContext: { t }, location }) => {
 
   return (

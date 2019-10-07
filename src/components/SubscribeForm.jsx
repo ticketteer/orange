@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default ({ site, pageContext: { t } }) => (
   <section className="bg-primary-color background-contain bg-14 crumina-module crumina-module-subscribe-form">
@@ -6,7 +6,7 @@ export default ({ site, pageContext: { t } }) => (
       <div className="row">
         <div className="subscribe-form">
           <div className="subscribe-main-content">
-            <img className="subscribe-img" src="/img/subscribe-img.png" alt="image" />
+            <img className="subscribe-img" src="/img/subscribe-img.png" alt="" />
             <div className="col-lg-7 col-md-12 col-sm-12 col-xs-12">
               <div className="crumina-module crumina-heading">
                 <h2 className="heading-title">{site.newsletter_title}</h2>

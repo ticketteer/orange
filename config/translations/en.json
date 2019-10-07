@@ -20,5 +20,7 @@
   "phone": "Phone",
   "subject": "Subject",
   "your_message": "Your message",
-  "categories": "Categories"
+  "categories": "Categories",
+  "agree": "Agree",
+  "better_not": "Better not"
 }

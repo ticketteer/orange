@@ -1,4 +1,5 @@
 import React from 'react'
+import AudienceSvg from '../../svg-inline/audience.svg'
 
 export default class Slide1 extends React.Component {
   
@@ -8,7 +9,6 @@ export default class Slide1 extends React.Component {
 
   componentDidMount () {
     this.setState({Typewriter: require('typewriter-effect') })
-    console.log(this.state.Typewriter)
   }
 
   render () {
@@ -55,7 +55,7 @@ export default class Slide1 extends React.Component {
             </div>
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <div className="slider-thumb slider1" data-swiper-parallax="-400" data-swiper-parallax-duration="600">
-                <img src={data.big_slider_image.url} alt="slider" className={data.big_slider_image.alt} />
+                <AudienceSvg />
               </div>
             </div>
 

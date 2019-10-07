@@ -20,5 +20,7 @@
   "phone": "Telefonnummer",
   "subject": "Titel / Betreff",
   "your_message": "Deine Nachricht",
-  "categories": "Kategorien"
+  "categories": "Kategorien",
+  "agree": "Einverstanden",
+  "better_not": "Lieber nicht"
 }

@@ -1,10 +1,10 @@
+import $ from 'jquery'
+import isEmpty from 'lodash/isEmpty'
 import React, { Component } from "react"
 import { Helmet } from 'react-helmet'
-import isEmpty from 'lodash/isEmpty'
-import MainMenu from './MainMenu'
-import $ from 'jquery'
-
 import LogoImg from '../images/logo.png'
+import MainMenu from './MainMenu'
+
 
 if (typeof(window) !== 'undefined') {
   window.$ = $;
@@ -76,7 +76,6 @@ export default class Header extends Component {
           <script defer src="/js/js-plugins/ion.rangeSlider.js"></script>
           <script defer src="/js/main.js"></script>
         </Helmet>
-        <div id="tt-preloader" style={preloaderStyles} />
         { this.props.site
           ? <MainMenu {...this.props} />
           : null
