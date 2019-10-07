@@ -81,7 +81,7 @@ export default props => {
           <div className="col-lg-6 col-lg-12 col-sm-12 col-xs-12 no-padding">
             <div style={{ height: '120vh', width: '100%' }}>
               <GoogleMapReact
-                bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API_KEY }}
+                bootstrapURLKeys={{ key: 'AIzaSyA68HEZz4-8XUHG0XnvBhnji1eMwSoTQ1Y' }}
                 defaultCenter={officeGeoCenterCoords}
                 defaultZoom={14}
                 options={{
