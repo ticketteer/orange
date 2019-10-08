@@ -12,7 +12,7 @@ export default ({ site, pageContext: { t } }) => {
       <div className="send-message-popup">
         <h5>{site.contact_form_title}</h5>
         <p>{site.contact_form_desc}</p>
-        <form className="contact-form" netlify data-netlify-recaptcha="true" data-netlify="true" method="post">
+        <form className="contact-form" data-netlify-honeypot="bot-field" data-netlify="true" method="post">
           <input type="hidden" name="form-name" value="contact" />
           <div className="with-icon">
             <input name="name" placeholder="Your Name" type="text" required="required" />
@@ -48,9 +48,6 @@ export default ({ site, pageContext: { t } }) => {
               <use xlinkHref="#utouch-icon-edit"></use>
             </svg>
           </div>
-
-          <div data-netlify-recaptcha="true"></div>
-
           <button className="btn btn--green btn--with-shadow full-width">
             {t['send']}
           </button>
