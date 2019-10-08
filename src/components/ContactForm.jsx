@@ -12,7 +12,7 @@ export default ({ site, pageContext: { t } }) => {
       <div className="send-message-popup">
         <h5>{site.contact_form_title}</h5>
         <p>{site.contact_form_desc}</p>
-        <form className="contact-form" data-netlify-recaptcha="true" data-netlify="true" method="post">
+        <form className="contact-form" netlify data-netlify-recaptcha="true" data-netlify="true" method="post">
           <input type="hidden" name="form-name" value="contact" />
           <div className="with-icon">
             <input name="name" placeholder="Your Name" type="text" required="required" />
