@@ -1,6 +1,22 @@
 import React from 'react'
 
 export default ({ site, pageContext: { t } }) => {
+  
+  // const handleSubmit = e => {
+  //   e.preventDefault()
+  //   const form = e.target
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: encode({
+  //       'form-name': form.getAttribute('name'),
+  //       ...this.state,
+  //     }),
+  //   })
+  //     .then(() => navigate(form.getAttribute('action')))
+  //     .catch(error => alert(error))
+  // }
+
   return (
     <div className="window-popup message-popup">
       <button className="popup-close js-popup-close cd-nav-trigger">
@@ -12,7 +28,7 @@ export default ({ site, pageContext: { t } }) => {
       <div className="send-message-popup">
         <h5>{site.contact_form_title}</h5>
         <p>{site.contact_form_desc}</p>
-        <form className="contact-form" data-netlify-honeypot="bot-field" data-netlify="true" method="post">
+        <form className="contact-form" name="contact" action="/contact" data-netlify-honeypot="bot-field" data-netlify="true" method="POST">
           <input type="hidden" name="form-name" value="contact" />
           <div className="with-icon">
             <input name="name" placeholder="Your Name" type="text" required="required" />
