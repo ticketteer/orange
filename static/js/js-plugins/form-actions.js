@@ -1,31 +1,26 @@
 $(function () {
     "use strict";
 
+    console.log('loading')
     $('.subscribe-form-js').on("submit", function (event) {
-        // Stop form from submitting normally
+      console.log('subsc')
         event.preventDefault();
-
-        // Get some values from elements on the page:
-        var $form = $(this),
-            email = $.trim($form.find('input[name="email"]').val()),
-            url = $form.attr("action");
-
-        // Send the data using post
-        var posting = $.post(url, {"email": email});
-
-        // Put the results in a div
+        var $form = $(this);
+        var url = $form.attr("action");
+        var posting = $.post(url, $form.serialize())
         posting.done(function () {
-            $form.html('<h4 class="subscribe-title" style="margin-bottom: 25px; line-height: 56px;">Thank you for submit!</h4>').fadeTo(300, 1);
+          $form.html('<h4 class="subscribe-title" style="margin-bottom: 25px; line-height: 56px;">Thank you for submit!</h4>').fadeTo(300, 1);
         });
 
     });
 
     $('.contact-form').on("submit", function (event) {
         event.preventDefault();
+        var $form = $(this);
         var url = $form.attr("action");
         var posting = $.post(url, $form.serialize())
         posting.done(function () {
-            $form.html('<h4>Thank you for subscription!</h4>').fadeTo(300, 1);
+          $form.html('<h4>Thank you for message!</h4>').fadeTo(300, 1);
         });
     });
 

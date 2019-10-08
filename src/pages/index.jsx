@@ -1,17 +1,17 @@
-import React from 'react'
 import { graphql } from 'gatsby'
-
+import React from 'react'
+import Clients from '../components/Clients'
+import ContactForm from '../components/ContactForm'
+import FeaturesSlider from '../components/FeaturesSlider'
+import Footer from '../components/Footer'
+import InfoBoxes from '../components/InfoBoxes'
 import Layout from '../components/Layout'
 import MainSlider from '../components/MainSlider'
-import InfoBoxes from '../components/InfoBoxes'
-import FeaturesSlider from '../components/FeaturesSlider'
-import Video from '../components/Video'
-import Clients from '../components/Clients'
 // import ShortFaqs from '../components/ShortFaqs'
 import Pricing from '../components/Pricing'
-import Footer from '../components/Footer'
-import ContactForm from '../components/ContactForm'
-import SubscribeForm from '../components/SubscribeForm';
+import SubscribeForm from '../components/SubscribeForm'
+import Video from '../components/Video'
+
 
 export const pageQuery = graphql`
 query site($lang: String) {
@@ -142,10 +142,7 @@ export default props => {
       <Video {...props} site={site} />
       <Clients {...props} site={site} />
       <Pricing {...props} site={site} />
-      { site.mailjet_list_id && site.mailjet_list_id.length > 0
-        ? <SubscribeForm {...props} site={site} />
-        : null
-      }
+      <SubscribeForm {...props} site={site} />
       <Footer {...props} site={site} />
       <ContactForm {...props} site={site} />
     </Layout>
