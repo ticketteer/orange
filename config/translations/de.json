@@ -1,5 +1,6 @@
 {
   "blog": "Blog",
+  "page": "Seite",
   "contact": "Kontakt",
   "pricing": "Preise",
   "events": "Events",
@@ -22,5 +23,7 @@
   "your_message": "Deine Nachricht",
   "categories": "Kategorien",
   "agree": "Einverstanden",
-  "better_not": "Lieber nicht"
+  "better_not": "Lieber nicht",
+  "start_trial": "Demo starten",
+  "stay_informed": "Immer am Laufenden bleiben!"
 }

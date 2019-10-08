@@ -40,13 +40,13 @@ const PricingPlan = ({ plan, ...props }) => (
       </div>
 
       <div>
-        <button className="more-arrow">
+        <a href="https://dashboard.ticketteer.com/auth/signup" className="more-arrow">
           <span>{plan.plan_cta_title}</span>
           <div className="btn-next">
             <svg className="utouch-icon icon-hover utouch-icon-arrow-right-1"><use xlinkHref="#utouch-icon-arrow-right-1"></use></svg>
             <svg className="utouch-icon utouch-icon-arrow-right1"><use xlinkHref="#utouch-icon-arrow-right1"></use></svg>
           </div>
-        </button>
+        </a>
       </div>
     </div>
   </div>

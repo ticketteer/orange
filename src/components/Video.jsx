@@ -15,7 +15,7 @@ export default () => {
                 Features und Tools.
               </p>
             </div>
-            <a href="02_company.html" className="btn btn-small btn--icon-right btn-border btn--with-shadow c-primary">
+            <a href="https://dashboard.ticketteer.com/auth/signup" className="btn btn-small btn--icon-right btn-border btn--with-shadow c-primary">
               <svg className="utouch-icon utouch-icon-arrow-right1">
                 <use xlinkHref="#utouch-icon-arrow-right1"></use>
                 </svg>
