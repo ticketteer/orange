@@ -28,7 +28,6 @@ const checkPrismicPage = (node, createNodeField) => {
   let slug, TTR, excerpt
 
   const data = JSON.parse(node.dataString)
-  const allText = fullText(data).toString()
 
   slug = localizedSlug('page', node)
 
@@ -43,10 +42,8 @@ const checkPrismicPage = (node, createNodeField) => {
     // If no excerpt can be extracted, give a default
     excerpt = 'No excerpt available'
   }
-  TTR = timeToRead(allText)
   createNodeField({ node, name: 'slug', value: slug })
   createNodeField({ node, name: 'excerpt', value: excerpt })
-  createNodeField({ node, name: 'timeToRead', value: TTR })
 }
 
 const checkPrismicBlogPost = (node, createNodeField) => {
