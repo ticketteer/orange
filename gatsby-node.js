@@ -22,30 +22,6 @@ const getIntl = lang => {
   return en
 }
 
-const checkPrismicPage = (node, createNodeField) => {
-  if (node.internal.type !== 'PrismicDefaultPage') return
-
-  let slug, TTR, excerpt
-
-  const data = JSON.parse(node.dataString)
-
-  slug = localizedSlug('page', node)
-
-  // Check if the first slice (body[0]) has a text type
-  if (data.body[0].primary.text) {
-    // Use the first text node as an excerpt
-    excerpt = ex(data.body[0].primary.text[0].text)
-  } else if (!data.body[0].primary.text) {
-    // If the first slice is e.g. a note, use the second slice (body[1]) + text type
-    excerpt = ex(data.body[1].primary.text[0].text)
-  } else {
-    // If no excerpt can be extracted, give a default
-    excerpt = 'No excerpt available'
-  }
-  createNodeField({ node, name: 'slug', value: slug })
-  createNodeField({ node, name: 'excerpt', value: excerpt })
-}
-
 const checkPrismicBlogPost = (node, createNodeField) => {
   if (node.internal.type !== 'PrismicBlogpost') return
 
@@ -82,7 +58,7 @@ const checkPrismicFeaturesPage = (node, createNodeField) => {
 // Insert additional info into the nodes for queries
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
-  checkPrismicPage(node, createNodeField)
+  // checkPrismicPage(node, createNodeField)
   checkPrismicBlogPost(node, createNodeField)
   checkPrismicFeaturesPage(node, createNodeField)
 }
