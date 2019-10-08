@@ -534,10 +534,10 @@ $(document).ready(function() {
     });
 
     jQuery(".js-popup-close").on('click', function () {
-         {  $('.search-popup').removeClass('open'); }
-         {  $('.message-popup').removeClass('open'); }
-         {  $('.popup-gallery').removeClass('open'); }
-        return false;
+      { $('.search-popup').removeClass('open'); }
+      { $('.message-popup').removeClass('open'); }
+      { $('.popup-gallery').removeClass('open'); }
+      return false;
     });
 
 
@@ -627,24 +627,8 @@ $(document).ready(function() {
         window.requestAnimationFrame( ttGlobal.layerInit);
     });
 
-    window.loadIntercom = function() {
-      var w = window;
-      var ic = w.Intercom;
-      if (typeof ic === "function") {
-        ic('reattach_activator');
-        ic('update', w.intercomSettings);
-      } else {
-        var d = document;
-        var i = function () { i.c(arguments); };
-        i.q = [];
-        i.c = function (args) { i.q.push(args);};
-        w.Intercom = i;
-        var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/vsjj5inu'; var x = d.getElementsByTagName('script')[0]; console.log('x', x, x.parentNode); x.parentNode.insertBefore(s, x);
-      }
-    }
-
     window.consentGiven = function() {
-      var name = "CookieConsent=";
+      var name = "CookieConsent=true";
       var ca = document.cookie.split(';');
       for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
@@ -662,3 +646,19 @@ $(document).ready(function() {
       loadIntercom();
     }
 });
+
+window.loadIntercom = function () {
+  var w = window;
+  var ic = w.Intercom;
+  if (typeof ic === "function") {
+    ic('reattach_activator');
+    ic('update', w.intercomSettings);
+  } else {
+    var d = document;
+    var i = function () { i.c(arguments); };
+    i.q = [];
+    i.c = function (args) { i.q.push(args); };
+    w.Intercom = i;
+    var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/vsjj5inu'; var x = d.getElementsByTagName('script')[0]; console.log('x', x, x.parentNode); x.parentNode.insertBefore(s, x);
+  }
+}

@@ -149,21 +149,28 @@
   height: 105px;
 }
 
-.cc-btn {
-  background: $green !important;
-  color: $white-color !important;
-  font-weight: bold;
-}
+.cookieConsent {
+  a {
+    color: $white-color;
+    font-weight: bold;
+  }
+  
+  .cc-btn {
+    background: $green !important;
+    color: $white-color !important;
+    font-weight: bold;
+  }
 
-.cc-btn, .cc-decline {
-  padding-left: 20px !important;
-  padding-right: 20px !important;
-  border-radius: 1.2em !important;
-}
+  .cc-btn, .cc-decline {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    border-radius: 1.2em !important;
+  }
 
-.cc-decline {
-  background: none !important;
-  border: 1px solid darken($white-color, 20%) !important;
+  .cc-decline {
+    background: none !important;
+    border: 1px solid darken($white-color, 20%) !important;
+  }
 }
 
 .site-logo {

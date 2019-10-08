@@ -12,7 +12,8 @@ export default ({ site, pageContext: { t } }) => {
       <div className="send-message-popup">
         <h5>{site.contact_form_title}</h5>
         <p>{site.contact_form_desc}</p>
-        <form className="contact-form" method="post" action="send_mail.php">
+        <form className="contact-form" data-netlify-recaptcha="true" data-netlify="true" method="post">
+          <input type="hidden" name="form-name" value="contact" />
           <div className="with-icon">
             <input name="name" placeholder="Your Name" type="text" required="required" />
             <svg className="utouch-icon utouch-icon-user">
@@ -48,8 +49,14 @@ export default ({ site, pageContext: { t } }) => {
             </svg>
           </div>
 
+          <div data-netlify-recaptcha="true"></div>
+
           <button className="btn btn--green btn--with-shadow full-width">
             {t['send']}
+          </button>
+          <div />
+          <button className="btn btn--secondary js-popup-close full-width" type="button">
+            {t['cancel']}
           </button>
 
         </form>

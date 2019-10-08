@@ -8,7 +8,6 @@ import SvgIcons from './SvgIcons'
 
 export default ({ children, gdpr, ...props }) => {
   const loadTrackers = () => {
-    console.log('loading trackers');
     window.loadIntercom();
   }
   return (

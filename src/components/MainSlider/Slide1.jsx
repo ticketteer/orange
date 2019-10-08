@@ -47,7 +47,7 @@ export default class Slide1 extends React.Component {
                     {t['learn_more']}
                   </a>
 
-                  <a href="https://dashboard.ticketteer.com/signup" className="btn btn-border btn--with-shadow c-primary">
+                  <a href="https://dashboard.ticketteer.com/auth/signup" className="btn btn-border btn--with-shadow c-primary">
                     {t['try_now']}
                   </a>
                 </div>
