@@ -2,7 +2,7 @@ import React from 'react'
 
 export default () => {
   return (
-    <section className="bg-8 background-contain pt100">
+    <section className="bg-8 background-contain pt100 pb100">
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
