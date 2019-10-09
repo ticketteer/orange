@@ -1581,7 +1581,7 @@ $.magnificPopup.registerModule(IFRAME_NS, {
 			youtube: {
 				index: 'youtube.com',
 				id: 'v=',
-				src: '//www.youtube.com/embed/%id%?autoplay=1'
+				src: '//www.youtube.com/embed/%id%?autoplay=1&modestbranding=1&rel=0&control=0'
 			},
 			vimeo: {
 				index: 'vimeo.com/',

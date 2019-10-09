@@ -8,7 +8,7 @@ module.exports = {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'ticketteer',
-        accessToken: `${process.env.PRISMIC_API_KEY}`,
+        accessToken: 'MC5YVTNiWlJFQUFDQUFkWHRE.aHbvv73vv71R77-9ECzvv73vv73vv73vv70FeWfvv73vv73vv71WcQln77-977-9IEdT77-9Oe-_ve-_ve-_vQ',
         linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
       },
     },

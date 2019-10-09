@@ -28,8 +28,8 @@ export default () => {
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div className="crumina-module crumina-our-video">
               <div className="video-thumb">
-                <img src="img/video-thumb.png" alt="video" />
-                <a href="https://www.youtube.com/watch?v=wnJ6LuUFpMo" className="video-control js-popup-iframe">
+                <img src="img/tt-video-thumb.png" alt="video" />
+                <a href="https://www.youtube.com/watch?v=jMlBNQq6cvQ" className="video-control js-popup-iframe">
                   <img src="img/play.png" alt="play" />
                 </a>
               </div>

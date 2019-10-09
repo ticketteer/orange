@@ -148,7 +148,7 @@ export default () => {
                 <div className="col-lg-6 col-md-6 col-sm-12">
                   <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
                   <div className="play-with-title">
-                    <a href="https://www.youtube.com/watch?v=wnJ6LuUFpMo" className="video-control js-popup-iframe">
+                          <a href="https://www.youtube.com/watch?v=jMlBNQq6cvQ" className="video-control js-popup-iframe">
                       <img src="img/play.png" alt="play" />
                     </a>
                     <h6 className="play-title">Watch the video of instruction</h6>
