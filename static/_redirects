@@ -1,3 +1,8 @@
-/terms    /page/terms
+/terms    /page/agb-fur-besucher
+
+/agb-besucher     /page/agb-besucher
+/agb-veranstalter    /page/agb-veranstalter
+/datenschutz         /page/datenschutz
+
 /signup   https://dashboard.ticketteer.com/auth/signup
 /login   https://dashboard.ticketteer.com/auth/login

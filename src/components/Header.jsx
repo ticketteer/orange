@@ -17,19 +17,19 @@ const helmetDefaults = {
   },
 }
 
-const preloaderStyles = {
-  display: 'block',
-  position: 'fixed',
-  zIndex: '99999',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100%',
-  minWidth: '100%',
-  background: '#da4a18 url(svg/preload.svg) center center no-repeat',
-  backgroundSize: '41px',
-  opacity: 1
-}
+// const preloaderStyles = {
+//   display: 'block',
+//   position: 'fixed',
+//   zIndex: '99999',
+//   top: 0,
+//   left: 0,
+//   width: '100%',
+//   height: '100%',
+//   minWidth: '100%',
+//   background: '#da4a18 url(svg/preload.svg) center center no-repeat',
+//   backgroundSize: '41px',
+//   opacity: 1
+// }
 
 export default class Header extends Component {
 
