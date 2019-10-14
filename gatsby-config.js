@@ -52,7 +52,14 @@ module.exports = {
           include: /svg-inline/ // See below to configure properly
         }
       }
-    }
+    },
+    {
+      resolve: 'gatsby-plugin-linkedin-insight',
+      options: {
+        partnerId: '1558148',
+        includeInDevelopment: false,
+      }
+    },
     // {
     //   resolve: "gatsby-source-filesystem",
     //   options: {

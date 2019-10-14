@@ -21,6 +21,7 @@
     "gatsby": "^2.11.7",
     "gatsby-plugin-facebook-pixel": "^1.0.3",
     "gatsby-plugin-google-analytics": "^2.1.20",
+    "gatsby-plugin-linkedin-insight": "^1.0.1",
     "gatsby-plugin-manifest": "^2.2.0",
     "gatsby-plugin-netlify": "^2.1.17",
     "gatsby-plugin-offline": "^2.2.0",
