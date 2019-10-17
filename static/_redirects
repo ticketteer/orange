@@ -6,3 +6,6 @@
 
 /signup   https://dashboard.ticketteer.com/auth/signup
 /login   https://dashboard.ticketteer.com/auth/login
+
+https://ticketteer.netlify.com/* https://ticketteer.com/:splat 301!
+https://www.get.ticketteer.com/* https://ticketteer.com/:splat 301!

@@ -1,8 +1,8 @@
-import React from 'react'
 import moment from 'moment'
 import 'moment/locale/de'
-
+import React from 'react'
 import BlogAuthor from './BlogAuthor'
+
 
 export default class BlogPage extends React.PureComponent {
 
@@ -78,8 +78,8 @@ export default class BlogPage extends React.PureComponent {
 
             <div className="post__date">
 
-              <time className="published" dateTime="2017-03-20 12:00:00">
-                <button className="number">{moment(blog.timestamp).day()}</button>
+              <time className="published" dateTime={moment(blog.timestamp).format('YYYY-MM-DD HH:mm:ss')}>
+                <button className="number">{moment(blog.timestamp).format('DD')}</button>
                 <span className="month">{moment(blog.timestamp).format('MMM YYYY')}</span>
                 <span className="day">{moment(blog.timestamp).format('dddd')}</span>
               </time>

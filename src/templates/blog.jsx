@@ -1,13 +1,13 @@
-import React from 'react'
 import { graphql } from 'gatsby'
+import React from 'react'
 import { Helmet } from 'react-helmet'
-import Layout from '../components/Layout'
-import Footer from '../components/Footer'
-import ContactForm from '../components/ContactForm'
-import BlogPage from '../components/BlogPage'
-import StayInformed from '../components/StayInformed'
 import BlogBreadcrumb from '../components/BlogBreadcrumb'
+import BlogPage from '../components/BlogPage'
 import BlogSidebar from '../components/BlogSidebar'
+import ContactForm from '../components/ContactForm'
+import Footer from '../components/Footer'
+import Layout from '../components/Layout'
+import StayInformed from '../components/StayInformed'
 
 export const query = graphql`
 query blogEntry($lang: String, $uid: String) {
@@ -69,6 +69,7 @@ export default ({ data, ...props }) => {
   const blog = data.prismicBlogPost.data
   const site = data.prismicLandingPage.data
   const gdpr = data.prismicGdpr.data
+  console.log(props.location)
   return (
     <Layout {...props} site={site} gdpr={gdpr}>
       <Helmet>

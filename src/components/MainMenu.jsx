@@ -51,6 +51,12 @@ export default ({ site, page, pageContext: { t }, location }) => {
             <li className="">
               <a href="/contact">{t['contact']}</a>
             </li>
+            <li className="w-fill">
+              <a href="/signup">{t['signup']}</a>
+            </li>
+            <li className="w-outline">
+              <a href="/login">{t['login']}</a>
+            </li>
           </ul>
         </nav>
 

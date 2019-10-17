@@ -1,12 +1,13 @@
-import React from 'react'
-import moment from 'moment'
-import { Link } from 'gatsby'
-import 'moment/locale/de'
+import { Link } from 'gatsby';
+import moment from 'moment';
+import 'moment/locale/de';
+import React from 'react';
 
 export default opts => {
   const blog = opts.entry.data;
   const t = opts.pageContext.t;
   moment.locale(opts.entry.lang.split('-')[0]);
+  console.log(blog.timestamp)
   return (
     <section className="">
       <article className="hentry post post-standard has-post-thumbnail sticky">
@@ -60,8 +61,8 @@ export default opts => {
 
         <div className="post__date">
 
-          <time className="published" dateTime="2017-03-20 12:00:00">
-            <button className="number">{moment(blog.timestamp).day()}</button>
+          <time className="published" dateTime={moment(blog.timestamp).format('YYYY-MM-DD HH:mm:ss')}>
+            <button className="number">{moment(blog.timestamp).format('DD')}</button>
             <span className="month">{moment(blog.timestamp).format('MMM YYYY')}</span>
             <span className="day">{moment(blog.timestamp).format('dddd')}</span>
           </time>

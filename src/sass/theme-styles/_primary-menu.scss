@@ -535,6 +535,27 @@ License: http://codecanyon.net/licenses
   width: 8.333333%;
 }
 
+
+.primary-menu-menu > li.w-fill,
+.primary-menu-menu > li.w-outline {
+  a {
+    background-color: $blue;
+    color: $white-color;
+    border: 2px solid $blue;
+    padding: 9px 15px;
+    font-size: .8em;
+  }
+  &:hover a {
+    color: $blue;
+  }
+}
+
+.primary-menu-menu > li.w-outline a {
+  color: $blue;
+  background-color: transparent;
+  margin-left: 10px;
+}
+
 /* 9 - SHOW/HIDE BUTTON (MOBILE MODE)
 ======================================*/
 
