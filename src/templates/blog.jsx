@@ -67,9 +67,9 @@ query blogEntry($lang: String, $uid: String) {
 
 export default ({ data, ...props }) => {
   const blog = data.prismicBlogPost.data
+  const slug = data.prismicBlogPost.uid
   const site = data.prismicLandingPage.data
   const gdpr = data.prismicGdpr.data
-  console.log(props.location)
   return (
     <Layout {...props} site={site} gdpr={gdpr}>
       <Helmet>
@@ -78,7 +78,7 @@ export default ({ data, ...props }) => {
         <meta property="og:site_name" content="Ticketteer" />
         <meta property="og:title" content={blog.title.text} />
         <meta property="og:description" content={blog.teaser_content.text} />
-        <meta property="og:url" content={props.location.href} />
+        <meta property="og:url" content={`https://www.ticketteer.com/blog/${slug}`} />
         <meta property="og:image" content={blog.cover_image.url} />
         <meta property="twitter:card" content="summary" />
         <meta property="twitter:description" content={blog.teaser_content.text} />

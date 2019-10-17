@@ -7,7 +7,6 @@ export default opts => {
   const blog = opts.entry.data;
   const t = opts.pageContext.t;
   moment.locale(opts.entry.lang.split('-')[0]);
-  console.log(blog.timestamp)
   return (
     <section className="">
       <article className="hentry post post-standard has-post-thumbnail sticky">

@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default ({ pageContext: { t } }) => {
-  console.log('t', t)
   return (
     <div className="crumina-stunning-header crumina-stunning-header--small stunning-header--content-inline bg-black">
       <div className="container">

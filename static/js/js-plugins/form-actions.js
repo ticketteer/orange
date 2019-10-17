@@ -1,9 +1,7 @@
 $(function () {
     "use strict";
 
-    console.log('loading')
     $('.subscribe-form-js').on("submit", function (event) {
-      console.log('subsc')
         event.preventDefault();
         var $form = $(this);
         var url = $form.attr("action");
