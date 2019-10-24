@@ -75,7 +75,7 @@ export default props => {
           <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
             <BlogListing {...props} blog={blog} />
           </div>
-          <BlogSidebar {...props} blog={blog} />
+          <BlogSidebar {...props} blog={blog} site={site} />
         </div>
       </div>
       <Footer {...props} site={site} />

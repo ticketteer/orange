@@ -93,7 +93,7 @@ export default ({ data, ...props }) => {
           <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
             <BlogPage {...props} blog={blog} />
           </div>
-          <BlogSidebar {...props} blog={blog} />
+          <BlogSidebar {...props} site={site} blog={blog} />
         </div>
       </div>
       <Footer {...props} site={site} />
