@@ -21,6 +21,10 @@ export default ({pageContext: { t } }) => {
             read more
           </a>
         </aside>
+{/* 
+        <aside className="widget w-search">
+          <SubscribeForm {...props} site={site} />
+        </aside> */}
 
         <aside className="widget w-category">
           <h5 className="widget-title">{t['categories']}</h5>
