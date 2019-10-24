@@ -47,7 +47,7 @@ module.exports = {
         defaultDataLayer: null,
         // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
         // gtmPreview: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_PREVIEW_NAME",
-        dataLayerName: "GTM-NC4FRQ4",
+        // dataLayerName: "GTM-NC4FRQ4",
       },
     },
     {
