@@ -23,17 +23,10 @@ export default ({ pageContext: { t }, site }) => {
           </a>
         </aside>
         
-        <aside class="widget w-search">
-          <h5 class="widget-title">Hier Newsletter bestellen</h5>
-          <form className="form-validate form-inline subscribe-form-js" method="POST" action="/newsletter" name="newsletter" data-netlify-honeypot="bot-field" data-netlify="true">
-            <input type="hidden" name="form-name" value="newsletter" />
-            <div>
-              <input name="email" placeholder={t['enter_your_email']} type="email" />
-            </div>
-            <button className="btn btn--green-light">
-              los
-            </button>
-          </form>
+        <aside className="widget w-search">
+          <button className="btn btn--green-light btn-block" type="button" onClick={() => window.loadMailchimp() }>
+            Newsletter bestellen
+          </button>
         </aside>
 
         <aside className="widget w-category">

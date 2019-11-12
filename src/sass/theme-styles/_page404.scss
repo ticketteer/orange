@@ -4,6 +4,11 @@
 .page404 {
   display: flex;
   min-height: 100vh;
+  background: $black;
+
+  .full-block {
+    position: relative;
+  }
 
   .col-8 {
 	width: 12.5%;

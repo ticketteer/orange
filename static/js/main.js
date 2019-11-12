@@ -659,6 +659,30 @@ window.loadIntercom = function () {
     i.q = [];
     i.c = function (args) { i.q.push(args); };
     w.Intercom = i;
-    var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/vsjj5inu'; var x = d.getElementsByTagName('script')[0]; console.log('x', x, x.parentNode); x.parentNode.insertBefore(s, x);
+    var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://widget.intercom.io/widget/vsjj5inu'; var x = d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+  }
+}
+
+document.cookie = "MCPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+window.loadMailchimp = function () {
+  var w = window;
+  var d = document;
+  var s = d.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = 'https://downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js';
+  s.setAttribute('data-dojo-config', 'usePlainJson: true, isDebug: false')
+  var x = d.getElementsByTagName('script')[0];
+  x.parentNode.insertBefore(s, x)
+  s.onload = function() {
+    w.dojoRequire(["mojo/signup-forms/Loader"], function(L) {
+      L.start({
+        "baseUrl": "mc.us5.list-manage.com",
+        "uuid": "ebee1bbb16fc0a1aaf4383f63",
+        "lid": "5ece28ec23",
+        "uniqueMethods": true
+      })
+    })
   }
 }
