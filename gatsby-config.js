@@ -24,6 +24,7 @@ module.exports = {
         icon: 'src/images/logo.png',
       },
     },
+    `gatsby-plugin-minify`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-offline',

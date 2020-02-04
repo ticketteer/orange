@@ -115,17 +115,17 @@ export default () => {
       <ul>
         <li>Follow Us:</li>
         <li>
-          <a target="_blank" href="https://facebook.com/ticketteer">
+          <a target="_blank" href="https://facebook.com/ticketteer" rel="noopener noreferrer">
             <span className="fa fa-facebook" />
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://twitter.com/ticketteer">
+          <a target="_blank" href="https://twitter.com/ticketteer" rel="noopener noreferrer">
             <span className="fa fa-twitter" />
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://linkedin.com/company/ticketteer">
+          <a target="_blank" href="https://linkedin.com/company/ticketteer" rel="noopener noreferrer">
             <span className="fa fa-linkedin" />
           </a>
         </li>

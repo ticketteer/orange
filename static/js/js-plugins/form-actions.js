@@ -1,5 +1,4 @@
-$(function () {
-    "use strict";
+$(document).ready(function () {
 
     $('.subscribe-form-js').on("submit", function (event) {
         event.preventDefault();

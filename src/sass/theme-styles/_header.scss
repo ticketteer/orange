@@ -20,6 +20,7 @@
   &.header-color-inherit {
     .site-logo .logo-text .logo-sub-title,
     .primary-menu-menu > li > a,
+    .primary-menu-menu > li > span,
     .nav-add li a,
     .site-logo .logo-text .logo-title,
     .nav-add li.cart i,
@@ -295,6 +296,7 @@
 
 .header--menu-rounded {
 
+  .primary-menu-menu > li > span,
   .primary-menu-menu > li > a {
     padding: 10px 13px;
     border-radius: 30px;

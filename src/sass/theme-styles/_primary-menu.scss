@@ -99,6 +99,7 @@ License: http://codecanyon.net/licenses
   float: left;
 }
 
+.primary-menu-menu > li > span,
 .primary-menu-menu > li > a{
   position: relative;
   font-size: 14px;
@@ -111,6 +112,7 @@ License: http://codecanyon.net/licenses
 }
 
 .primary-menu-menu > li:hover > a,
+.primary-menu-menu > li:hover > span,
 .primary-menu-menu > li:hover,
 .primary-menu-menu > li.current-menu-item a,
 .primary-menu-menu > li.current-menu-item {
@@ -317,6 +319,7 @@ License: http://codecanyon.net/licenses
 
 /* Hover state (sub-menu items) */
 .primary-menu-menu ul.sub-menu li:hover > a,
+.primary-menu-menu ul.sub-menu li:hover > span,
 .primary-menu-menu > li.menu-item-has-mega-menu .megamenu ul > li:hover a {
   transition: all .3s ease;
   color: $primary-color;
@@ -538,14 +541,15 @@ License: http://codecanyon.net/licenses
 
 .primary-menu-menu > li.w-fill,
 .primary-menu-menu > li.w-outline {
-  a {
+  a, span {
     background-color: $blue;
     color: $white-color;
     border: 2px solid $blue;
     padding: 9px 15px;
     font-size: .8em;
   }
-  &:hover a {
+  &:hover a,
+  &:hover span {
     color: $blue;
   }
 }
@@ -690,7 +694,11 @@ License: http://codecanyon.net/licenses
   border: solid 1px #f0f0f0;
   outline: 0;
 }
+.primary-menu-menu li.active span,
+.primary-menu-menu li:hover span,
 .primary-menu-tabs-nav li.active a,
+.primary-menu-tabs-nav li.active span,
+.primary-menu-tabs-nav li:hover span,
 .primary-menu-tabs-nav li:hover a{
   background: #f0f0f0;
 }

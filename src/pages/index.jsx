@@ -9,6 +9,7 @@ import Layout from '../components/Layout'
 import MainSlider from '../components/MainSlider'
 // import ShortFaqs from '../components/ShortFaqs'
 import Pricing from '../components/Pricing'
+import Counters from '../components/Counters'
 import SubscribeForm from '../components/SubscribeForm'
 import Video from '../components/Video'
 
@@ -137,6 +138,7 @@ export default props => {
   return (
     <Layout {...props} site={site} gdpr={gdpr}>
       <MainSlider {...props} site={site} />
+      <Counters {...props} site={site} />
       <InfoBoxes {...props} site={site} />
       <FeaturesSlider {...props} site={site} />
       <Video {...props} site={site} />

@@ -109,8 +109,8 @@ $(document).ready(function() {
      * --------------------- */
 
     var scroll  = new SmoothScroll('a[href*="#"]', {
-            ignore: '[data-toggle]', // Selector for links to ignore (must be a valid CSS selector)
-            offset: 40 // Integer or Function returning an integer. How far to offset the scrolling anchor location in pixels
+      ignore: '[data-toggle]', // Selector for links to ignore (must be a valid CSS selector)
+      offset: 40 // Integer or Function returning an integer. How far to offset the scrolling anchor location in pixels
      });
 
 
@@ -125,28 +125,6 @@ $(document).ready(function() {
                     $(this.element).find('span').countTo();
                     this.destroy();
                 }, {offset: '95%'});
-            });
-        }
-    };
-
-    /* -----------------------
-     * COUNTDOWN
-     * --------------------- */
-
-    ttGlobal.countdown = function () {
-        if ($countdown.length) {
-            $countdown.each(function () {
-                var $countcontainer = $(this);
-                var $countdate = $countcontainer.data('countdown');
-
-                $countcontainer.countdown($countdate).on('update.countdown', function(event) {
-                    $countcontainer.html(event.strftime(''
-                        + '<div class="column"><div class="text">DAY%!d</div><div class="timer">%D</div></div><div class="timer">:</div>'
-                        + '<div class="column"><div class="text">HRS</div><div class="timer">%H</div></div><div class="timer">:</div>'
-                        + '<div class="column"><div class="text">MIN</div><div class="timer">%M</div></div><div class="timer">:</div>'
-                        + '<div class="column"><div class="text">SEC</div><div class="timer">%S</div></div>'));
-                    });
-
             });
         }
     };
@@ -540,7 +518,15 @@ $(document).ready(function() {
       return false;
     });
 
-
+    jQuery('body').on('click', '.signup-btn', function (e) {
+      e.preventDefault();
+      $('#signup-email').addClass('open');
+      setTimeout(function () {
+        $('#signup-email .signup-email-form').addClass('open');
+        $('#signup-email input').focus();
+      }, 100);
+    });
+    
     /*---------------------------------
      ACCORDION
      -----------------------------------*/
@@ -614,7 +600,6 @@ $(document).ready(function() {
     ttGlobal.preloader();
     ttGlobal.layerInit();
 
-    ttGlobal.countdown();
     // On Scroll animations.
     ttGlobal.counters();
     ttGlobal.progresBars();
