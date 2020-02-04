@@ -57,9 +57,12 @@ export default class Header extends Component {
           <title>Ticketteer{isEmpty(title) ? '' : `- ${title}`}</title>
           <script defer src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
           <script defer src="/js/js-plugins/moment.js"></script>
+          <script defer src="/js/js-plugins/jquery.countdown.min.js"></script>
+          <script defer src="/js/js-plugins/crum-mega-menu.js"></script>
           <script defer src="/js/js-plugins/swiper.jquery.min.js"></script>
           <script defer src="/js/js-plugins/velocity.min.js"></script>
           <script defer src="/js/js-plugins/form-actions.js"></script>
+          <script defer src="/js/js-plugins/waypoints.js"></script>
           <script defer src="/js/js-plugins/jquery-countTo.js"></script>
           <script defer src="/js/js-plugins/jquery.nice-select.js"></script>
           <script defer src="/js/js-plugins/imagesLoaded.js"></script>
@@ -69,6 +72,8 @@ export default class Header extends Component {
           <script defer src="/js/js-plugins/smooth-scroll.js"></script>
           <script defer src="/js/js-plugins/segment.js"></script>
           <script defer src="/js/js-plugins/bootstrap.js"></script>
+          <script defer src="/js/js-plugins/isotope.pkgd.min.js"></script>
+          <script defer src="/js/js-plugins/ion.rangeSlider.js"></script>
           <script defer src="/js/main.js"></script>
         </Helmet>
         { this.props.site
