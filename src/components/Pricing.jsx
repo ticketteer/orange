@@ -33,7 +33,7 @@ const PricingPlan = ({ plan, ...props }) => (
           className="pricing-description"
           dangerouslySetInnerHTML={{ __html: plan.plan_features.html }}
         />
-        {plan.plan_price_monthly && plan.plan_price_monthly.length > 0
+        {plan.plan_price_monthly && plan.plan_price_monthly.length > 0 && parseInt(plan.plan_price_monthly) > 0
           ? <Price plan={plan} {...props} />
           : null
         }
