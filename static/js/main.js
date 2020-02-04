@@ -17,9 +17,7 @@ $(document).ready(function() {
         $header = $('#site-header'),
         $footer = $('#site-footer'),
         $counter = $('.counter'),
-        $countdown = $('.countdown-timer'),
         $progress_bar = $('.skills-item'),
-        $primaryMenu = $('#primary-menu'),
         $preloader = $('#tt-preloader');
 
     var overlayNav = $('.cd-overlay-nav'),
@@ -427,7 +425,6 @@ $(document).ready(function() {
         if (eventObject.which == 27) {
             $body.removeClass('overlay-enable');
             $('.search-standard').removeClass('open');
-            $primaryMenu.css({'visibility': 'visible'});
             $('#menu-icon-trigger').css({'opacity': '1'});
             $('.top-bar').removeClass('open');
         }
