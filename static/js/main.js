@@ -10,6 +10,7 @@ $(document).ready(function() {
     // Predefined Variables
     //----------------------------------------------------/
     var $window = $(window),
+        $document = $(document),
         $body = $('body'),
 
         swipers = {},
@@ -129,6 +130,28 @@ $(document).ready(function() {
     };
 
     /* -----------------------
+     * COUNTDOWN
+     * --------------------- */
+
+    ttGlobal.countdown = function () {
+        if ($countdown.length) {
+            $countdown.each(function () {
+                var $countcontainer = $(this);
+                var $countdate = $countcontainer.data('countdown');
+
+                $countcontainer.countdown($countdate).on('update.countdown', function(event) {
+                    $countcontainer.html(event.strftime(''
+                        + '<div class="column"><div class="text">DAY%!d</div><div class="timer">%D</div></div><div class="timer">:</div>'
+                        + '<div class="column"><div class="text">HRS</div><div class="timer">%H</div></div><div class="timer">:</div>'
+                        + '<div class="column"><div class="text">MIN</div><div class="timer">%M</div></div><div class="timer">:</div>'
+                        + '<div class="column"><div class="text">SEC</div><div class="timer">%S</div></div>'));
+                    });
+
+            });
+        }
+    };
+
+    /* -----------------------
      * Progress bars Animation
      * --------------------- */
     ttGlobal.progresBars = function () {
@@ -188,6 +211,63 @@ $(document).ready(function() {
         });
     };
 
+	// Ion.RangeSlider
+	// version 2.2.0 Build: 380
+	// © Denis Ineshin, 2017
+	// https://github.com/IonDen
+	//
+	// Project page:    http://ionden.com/a/plugins/ion.rangeSlider/en.html
+	// GitHub page:     https://github.com/IonDen/ion.rangeSlider
+	//
+	// Released under MIT licence:
+	// http://ionden.com/a/plugins/licence-en.html
+
+	ttGlobal.rangeSlider = function () {
+		$(".range-slider-js").ionRangeSlider({
+				type: "double",
+				grid: true,
+				min: 0,
+				max: 1000,
+				from: 200,
+				to: 800,
+				prefix: "$"
+			}
+		);
+	};
+
+    /* -----------------------------
+     * Isotope sorting
+     * ---------------------------*/
+
+    ttGlobal.IsotopeSort = function () {
+        var $container = $('.sorting-container');
+        $container.each(function () {
+            var $current = $(this);
+            var layout = ($current.data('layout').length) ? $current.data('layout') : 'masonry';
+            $current.isotope({
+                itemSelector: '.sorting-item',
+                layoutMode: layout,
+                percentPosition: true
+            });
+
+            $current.imagesLoaded().progress(function () {
+                $current.isotope('layout');
+            });
+
+            var $sorting_buttons = $current.siblings('.sorting-menu').find('li');
+
+            $sorting_buttons.on('click', function () {
+                if ($(this).hasClass('active')) return false;
+                $(this).parent().find('.active').removeClass('active');
+                $(this).addClass('active');
+                var filterValue = $(this).data('filter');
+                if (typeof filterValue != "undefined") {
+                    $current.isotope({filter: filterValue});
+                    return false;
+                }
+            });
+        });
+    };
 
     /* -----------------------------
      * Sliders and Carousels
@@ -433,15 +513,6 @@ $(document).ready(function() {
         }
     });
 
-    jQuery('.signup-btn').on('click', function (e) {
-      e.preventDefault();
-      $('#signup-email').addClass('open');
-      setTimeout(function() {
-        $('#signup-email .signup-email-form').addClass('open');
-        $('#signup-email input').focus();
-      }, 100);
-    });
-
     jQuery(".js-open-search-popup > *").on('click', function () {
         ttGlobal.toggleSearch();
         return false;
@@ -518,12 +589,24 @@ $(document).ready(function() {
     if ($('#menu-icon-wrapper').length) {
         ttGlobal.burgerAnimation();
     }
+
+    $primaryMenu.crumegamenu({
+      showSpeed: 0,
+      hideSpeed: 0,
+      trigger: "hover",
+      animation: "drop-up",
+      effect: "fade",
+      indicatorFirstLevel: "&#xf0d7",
+      indicatorSecondLevel: "&#xf105"
+    });
     
     ttGlobal.fixedHeader();
     ttGlobal.initSwiper();
     ttGlobal.equalHeight();
     ttGlobal.mediaPopups();
+    ttGlobal.IsotopeSort();
     ttGlobal.parallaxFooter();
+    ttGlobal.rangeSlider();
 
     // Dom modifications
     $('select').niceSelect();
@@ -531,6 +614,7 @@ $(document).ready(function() {
     ttGlobal.preloader();
     ttGlobal.layerInit();
 
+    ttGlobal.countdown();
     // On Scroll animations.
     ttGlobal.counters();
     ttGlobal.progresBars();

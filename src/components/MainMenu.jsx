@@ -52,7 +52,7 @@ export default ({ site, page, pageContext: { t }, location }) => {
               <a href="/contact">{t['contact']}</a>
             </li>
             <li className="w-fill">
-              <a href="/" className="signup-btn">{t['try_now']}</a>
+              <a href="/signup">{t['try_now']}</a>
             </li>
             <li className="w-outline">
               <a href="/login">{t['login']}</a>

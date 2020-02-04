@@ -97,7 +97,7 @@ export default () => {
           <svg className="utouch-icon utouch-icon-telephone-keypad-with-ten-keys">
             <use xlinkHref="#utouch-icon-telephone-keypad-with-ten-keys"></use>
               </svg>
-        <span className="info">+43 316 44 00 53</span>
+        <span className="info">+43 720 11 66 28</span>
       </div>
       <div className="contact-item display-flex">
         <svg className="utouch-icon utouch-icon-message-closed-envelope-1">
@@ -115,17 +115,17 @@ export default () => {
       <ul>
         <li>Follow Us:</li>
         <li>
-          <a target="_blank" href="https://facebook.com/ticketteer" rel="noopener noreferrer">
+          <a target="_blank" href="https://facebook.com/ticketteer">
             <span className="fa fa-facebook" />
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://twitter.com/ticketteer" rel="noopener noreferrer">
+          <a target="_blank" href="https://twitter.com/ticketteer">
             <span className="fa fa-twitter" />
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://linkedin.com/company/ticketteer" rel="noopener noreferrer">
+          <a target="_blank" href="https://linkedin.com/company/ticketteer">
             <span className="fa fa-linkedin" />
           </a>
         </li>

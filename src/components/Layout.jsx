@@ -4,7 +4,6 @@ import '../sass/theme-styles.scss'
 import Header from './Header'
 // import { useStaticQuery, graphql } from 'gatsby'
 import SvgIcons from './SvgIcons'
-import SignupEmail from '../components/SignupEmail'
 
 
 export default ({ children, gdpr, ...props }) => {
@@ -13,7 +12,6 @@ export default ({ children, gdpr, ...props }) => {
   }
   return (
     <div>
-      <SignupEmail {...props} />
       <Header {...props} />
       <div className="header-spacer"></div>
       <div className="content-wrapper">
