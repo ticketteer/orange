@@ -9,6 +9,7 @@ import SignupEmail from '../components/SignupEmail'
 export default ({ children, gdpr, ...props }) => {
   const loadTrackers = () => {
     window.loadIntercom();
+    window.loadLeadFeeder();
   }
   return (
     <div>
