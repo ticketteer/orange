@@ -7,6 +7,7 @@
 
 /signup   https://dashboard.ticketteer.com/auth/signup
 /login   https://dashboard.ticketteer.com/auth/login
+/spenden-statt-hingehen   /blog/fur-den-guten-zweck-sammle-jetzt-mit-ticketteer-online-spenden-fur-deine-organisation
 
 https://ticketteer.netlify.com/* https://ticketteer.com/:splat 301!
 https://www.get.ticketteer.com/* https://ticketteer.com/:splat 301!
