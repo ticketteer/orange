@@ -97,7 +97,7 @@ export default () => {
           <svg className="utouch-icon utouch-icon-telephone-keypad-with-ten-keys">
             <use xlinkHref="#utouch-icon-telephone-keypad-with-ten-keys"></use>
               </svg>
-        <span className="info">+43 316 23 12 77</span>
+        <span className="info">+43 664 18 699 80</span>
       </div>
       <div className="contact-item display-flex">
         <svg className="utouch-icon utouch-icon-message-closed-envelope-1">
